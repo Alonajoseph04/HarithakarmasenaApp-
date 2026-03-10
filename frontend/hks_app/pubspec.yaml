@@ -1,0 +1,41 @@
+name: hks_app
+description: Haritha Karma Sena Waste Collection Management System
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # HTTP & State
+  dio: ^5.4.0
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  # Navigation
+  go_router: ^13.2.0
+  # Charts
+  fl_chart: ^0.67.0
+  # QR Code
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^5.2.3
+  # Notifications
+  flutter_local_notifications: ^17.2.2
+  # UI
+  google_fonts: ^6.2.1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  intl: ^0.19.0
+  # Icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

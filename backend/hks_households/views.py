@@ -1,0 +1,37 @@
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .models import Household
+from .serializers import HouseholdSerializer
+
+class HouseholdViewSet(viewsets.ModelViewSet):
+    queryset = Household.objects.select_related('ward').all()
+    serializer_class = HouseholdSerializer
+    permission_classes = [IsAuthenticated]
+    search_fields = ['name', 'phone', 'address']
+    filterset_fields = ['ward', 'is_active']
+
+    @action(detail=False, methods=['get'])
+    def by_qr(self, request):
+        qr_code = request.query_params.get('qr_code')
+        if not qr_code:
+            return Response({'error': 'qr_code parameter required'}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            household = Household.objects.get(qr_code=qr_code)
+            return Response(HouseholdSerializer(household).data)
+        except Household.DoesNotExist:
+            return Response({'error': 'Household not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=True, methods=['get'])
+    def qr_code_image(self, request, pk=None):
+        household = self.get_object()
+        return Response({'qr_base64': household.get_qr_base64(), 'qr_code': household.qr_code})
+
+    @action(detail=False, methods=['get'])
+    def me(self, request):
+        try:
+            household = Household.objects.get(phone=request.user.phone)
+            return Response(HouseholdSerializer(household).data)
+        except Household.DoesNotExist:
+            return Response({'error': 'Household profile not found'}, status=status.HTTP_404_NOT_FOUND)
