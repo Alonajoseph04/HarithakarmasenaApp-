@@ -62,26 +62,44 @@ class WorkerViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['post'], url_path='notify_ward')
     def notify_ward(self, request):
-        """Worker sends a notification to all households in their ward that collection is starting."""
+        """Worker sends a notification to households in a ward that collection is starting.
+        Accepts optional ward_id in the request body; falls back to worker's assigned ward."""
+        from hks_households.models import Household
+        from hks_notifications.models import Notification
+
+        # Try to get worker profile (non-fatal if missing)
+        worker = None
         try:
             worker = Worker.objects.get(user=request.user)
         except Worker.DoesNotExist:
-            return Response({'error': 'Worker profile not found'}, status=404)
+            pass
 
-        if not worker.ward:
-            return Response({'error': 'No ward assigned'}, status=400)
+        # Determine which ward to notify
+        ward_id = request.data.get('ward_id')
+        if ward_id:
+            try:
+                ward = Ward.objects.get(id=ward_id)
+            except Ward.DoesNotExist:
+                return Response({'error': f'Ward {ward_id} not found'}, status=404)
+        elif worker and worker.ward:
+            ward = worker.ward
+        else:
+            return Response(
+                {'error': 'No ward specified. Please select a ward and try again.'},
+                status=400
+            )
 
-        message = request.data.get('message', f'{worker.user.get_full_name()} is starting waste collection in {worker.ward.name} today.')
+        worker_name = worker.user.get_full_name() if worker else request.user.get_full_name()
+        default_msg = f'{worker_name} is starting waste collection in {ward.name} today. Please keep your waste ready.'
+        message = request.data.get('message', default_msg)
 
-        from hks_households.models import Household
-        from hks_notifications.models import Notification
-        households = Household.objects.filter(ward=worker.ward, is_active=True).select_related('user')
+        households = Household.objects.filter(ward=ward, is_active=True).select_related('user')
         count = 0
         for hh in households:
             if hh.user:
                 Notification.objects.create(
                     recipient=hh.user,
-                    title=f'Collection Starting - {worker.ward.name}',
+                    title=f'Collection Starting - {ward.name}',
                     message=message,
                     notification_type='reminder'
                 )
@@ -90,8 +108,7 @@ class WorkerViewSet(viewsets.ModelViewSet):
         return Response({
             'success': True,
             'notified': count,
-            'ward': worker.ward.name,
-            'worker': f'{worker.user.get_full_name()} ({worker.worker_id})',
+            'ward': ward.name,
         })
 
     @action(detail=False, methods=['get'], url_path='skip_requests')

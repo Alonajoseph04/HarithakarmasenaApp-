@@ -30,6 +30,7 @@ class HouseholdSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'address', 'phone', 'ward', 'ward_id',
             'qr_code', 'qr_base64', 'monthly_fee', 'is_active',
-            'created_at', 'pending_amount', 'last_collection'
+            'created_at', 'pending_amount', 'last_collection',
+            'preferred_payment', 'upi_id',
         ]
         read_only_fields = ['qr_code']

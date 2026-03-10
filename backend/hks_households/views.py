@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from django.db.models import Q
 from .models import Household
 from .serializers import HouseholdSerializer
 
@@ -22,6 +23,23 @@ class HouseholdViewSet(viewsets.ModelViewSet):
             return Response(HouseholdSerializer(household).data)
         except Household.DoesNotExist:
             return Response({'error': 'Household not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=False, methods=['get'])
+    def by_code(self, request):
+        """Forgiving lookup: match qr_code exactly OR household name (case-insensitive).
+        Used for manual entry in the worker scanner screen."""
+        code = request.query_params.get('code', '').strip()
+        if not code:
+            return Response({'error': 'code parameter required'}, status=status.HTTP_400_BAD_REQUEST)
+        # Try exact QR code first
+        qs = Household.objects.filter(
+            Q(qr_code__iexact=code) | Q(name__icontains=code)
+        ).select_related('ward')
+        if not qs.exists():
+            return Response({'error': f'No household found matching "{code}"'}, status=status.HTTP_404_NOT_FOUND)
+        # If multiple matches (e.g. partial name), return first active one
+        household = qs.filter(is_active=True).first() or qs.first()
+        return Response(HouseholdSerializer(household).data)
 
     @action(detail=True, methods=['get'])
     def qr_code_image(self, request, pk=None):

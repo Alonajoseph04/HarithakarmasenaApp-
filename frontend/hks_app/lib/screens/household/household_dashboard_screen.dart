@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -136,6 +136,9 @@ class _HouseholdDashboardScreenState extends State<HouseholdDashboardScreen> {
                       _QuickCard(s.wasteGuidelines, Icons.eco, Colors.green, () => context.go('/household/guidelines')),
                       _QuickCard(s.contactWorker, Icons.phone, Colors.teal, () => context.go('/household/worker-contact')),
                       _QuickCard(s.skipCollection, Icons.skip_next, Colors.orange.shade700, () => context.go('/household/skip')),
+                      // ── NEW tiles ─────────────────────────────────────────────────────────
+                      _QuickCard(s.rateWorker, Icons.star_rounded, Colors.amber.shade700, () => context.go('/household/history')),
+                      _QuickCard(s.requestExtraPickup, Icons.add_box_rounded, Colors.teal.shade700, () => context.go('/household/extra-pickup')),
                     ],
                   ),
                   const SizedBox(height: 20),

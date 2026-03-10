@@ -27,10 +27,29 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
     } catch (_) { setState(() => _loading = false); }
   }
 
+  /// Trigger backend to assign a QR code by patching with empty data
+  Future<void> _generateQr(Map<String, dynamic> household) async {
+    Navigator.pop(context); // close old dialog
+    try {
+      await _api.updateHousehold(household['id'] as int, {});
+      await _load();
+      // Find refreshed data and show updated dialog
+      final refreshed = _households.firstWhere(
+        (h) => h['id'] == household['id'], orElse: () => household);
+      if (mounted) _showQR(refreshed);
+    } catch (e) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to generate QR: $e'), backgroundColor: Colors.red));
+    }
+  }
+
   void _showAddDialog([Map<String, dynamic>? existing]) {
     final nameCtrl = TextEditingController(text: existing?['name'] ?? '');
     final addrCtrl = TextEditingController(text: existing?['address'] ?? '');
     final phoneCtrl = TextEditingController(text: existing?['phone'] ?? '');
+    final feeCtrl = TextEditingController(
+      text: existing?['monthly_fee']?.toString() ?? '100',
+    );
     int? wardId = existing?['ward']?['id'];
 
     showDialog(
@@ -48,6 +67,16 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
               const SizedBox(height: 10),
               TextField(controller: addrCtrl, decoration: const InputDecoration(labelText: 'Address'), maxLines: 2),
               const SizedBox(height: 10),
+              TextField(
+                controller: feeCtrl,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  labelText: 'Monthly Fee (Rs)',
+                  prefixIcon: Icon(Icons.currency_rupee),
+                  hintText: '100',
+                ),
+              ),
+              const SizedBox(height: 10),
               DropdownButtonFormField<int>(
                 value: wardId,
                 hint: const Text('Select Ward'),
@@ -64,9 +93,11 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
             ElevatedButton(
               onPressed: () async {
                 Navigator.pop(ctx);
+                final fee = double.tryParse(feeCtrl.text.trim()) ?? 100.0;
                 final data = {
                   'name': nameCtrl.text, 'phone': phoneCtrl.text,
                   'address': addrCtrl.text, 'ward_id': wardId,
+                  'monthly_fee': fee,
                 };
                 try {
                   if (existing == null) {
@@ -91,7 +122,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
   }
 
   void _showQR(Map<String, dynamic> household) {
-    final qrCode = household['qr_code'] ?? '';
+    final qrCode = (household['qr_code'] ?? '').toString().trim();
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -100,18 +131,42 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            QrImageView(data: qrCode, version: QrVersions.auto, size: 200),
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: AppTheme.background,
-                borderRadius: BorderRadius.circular(8),
+            if (qrCode.isEmpty) ...[
+              const Icon(Icons.qr_code_2, size: 80, color: Colors.grey),
+              const SizedBox(height: 12),
+              Text(
+                'No QR code assigned yet.',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
               ),
-              child: Text(qrCode, style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600)),
-            ),
-            const SizedBox(height: 4),
-            Text('Scan this QR to record collection', style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
+              const SizedBox(height: 12),
+              ElevatedButton.icon(
+                icon: const Icon(Icons.refresh),
+                label: const Text('Generate QR Code'),
+                onPressed: () => _generateQr(household),
+              ),
+            ] else ...[
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 10)],
+                ),
+                child: QrImageView(data: qrCode, version: QrVersions.auto, size: 200),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: AppTheme.background,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: SelectableText(qrCode, style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600)),
+              ),
+              const SizedBox(height: 4),
+              Text('Scan this QR to record collection', style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
+            ],
           ],
         ),
         actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close'))],
@@ -146,7 +201,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
                             style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                       ),
                       title: Text(h['name'].toString(), style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-                      subtitle: Text('${h['phone']} • ${h['ward']?['name'] ?? 'No ward'}\n${h['address']}',
+                      subtitle: Text('${h['phone']} • ${h['ward']?['name'] ?? 'No ward'} • Rs ${h['monthly_fee'] ?? 100}/mo\n${h['address']}',
                           style: GoogleFonts.poppins(fontSize: 11), maxLines: 2),
                       isThreeLine: true,
                       trailing: Row(mainAxisSize: MainAxisSize.min, children: [

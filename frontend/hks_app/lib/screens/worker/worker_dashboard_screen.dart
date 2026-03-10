@@ -44,9 +44,15 @@ class _WorkerDashboardScreenState extends State<WorkerDashboardScreen>
   Future<void> _load() async {
     setState(() => _loading = true);
     try {
-      final worker = await _api.getWorkerMe();
+      int? workerId;
+      try {
+        final worker = await _api.getWorkerMe();
+        workerId = worker['id'] as int?;
+      } catch (_) {
+        // Worker profile not linked; load stats without worker filter
+      }
       final stats = await _api.getStats(
-          period: _periods[_selectedIdx], workerId: worker['id'] as int);
+          period: _periods[_selectedIdx], workerId: workerId);
       if (mounted) setState(() { _stats = stats; _loading = false; });
     } catch (_) {
       if (mounted) setState(() => _loading = false);

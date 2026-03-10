@@ -129,6 +129,11 @@ class ApiService {
     return res.data;
   }
 
+  Future<Map<String, dynamic>> getHouseholdByCode(String code) async {
+    final res = await _dio.get('/households/by_code/', queryParameters: {'code': code});
+    return res.data;
+  }
+
   Future<Map<String, dynamic>> getHouseholdMe() async {
     final res = await _dio.get('/households/me/');
     return res.data;
@@ -206,8 +211,11 @@ class ApiService {
   }
 
   // WORKER NOTIFY WARD
-  Future<Map<String, dynamic>> notifyWard({String? message}) async {
-    final res = await _dio.post('/workers/notify_ward/', data: message != null ? {'message': message} : {});
+  Future<Map<String, dynamic>> notifyWard({String? message, int? wardId}) async {
+    final data = <String, dynamic>{};
+    if (message != null) data['message'] = message;
+    if (wardId != null) data['ward_id'] = wardId;
+    final res = await _dio.post('/workers/notify_ward/', data: data);
     return res.data;
   }
 

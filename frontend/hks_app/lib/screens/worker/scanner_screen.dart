@@ -16,6 +16,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   final _api = ApiService();
   MobileScannerController? _controller;
   bool _scanned = false;
+  bool _manualLoading = false; // shows overlay while manual lookup runs
 
   @override
   void initState() {
@@ -40,16 +41,98 @@ class _ScannerScreenState extends State<ScannerScreen> {
     try {
       final household = await _api.getHouseholdByQr(qrCode);
       if (mounted) {
-        context.go('/worker/collect', extra: household);
+        context.push('/worker/collect', extra: household);
       }
-    } catch (_) {
+    } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Household not found for this QR code'), backgroundColor: Colors.red));
+          SnackBar(
+            content: Text('Household not found for this QR code'),
+            backgroundColor: Colors.red,
+          ),
+        );
         setState(() => _scanned = false);
         _controller?.start();
       }
     }
+  }
+
+  Future<void> _manualLookup(String qrCode) async {
+    if (qrCode.isEmpty) return;
+    setState(() => _manualLoading = true);
+    try {
+      // Try exact QR code first; if that fails try searching by house code
+      Map<String, dynamic> household;
+      try {
+        household = await _api.getHouseholdByQr(qrCode);
+      } catch (_) {
+        // Try by_code fallback (forgiving search by name/code)
+        household = await _api.getHouseholdByCode(qrCode);
+      }
+      if (mounted) {
+        setState(() => _manualLoading = false);
+        context.push('/worker/collect', extra: household);
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _manualLoading = false);
+        final msg = e.toString().contains('404') || e.toString().contains('not found')
+            ? 'No household found for "$qrCode". Check the code and try again.'
+            : 'Error looking up household: $e';
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(msg),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 4),
+          ),
+        );
+      }
+    }
+  }
+
+  void _showManualDialog() {
+    final ctrl = TextEditingController();
+    final s = context.read<LanguageProvider>().strings;
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text(s.enterQrCode),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: ctrl,
+              autofocus: true,
+              textCapitalization: TextCapitalization.characters,
+              decoration: const InputDecoration(
+                hintText: 'HKS-A1B2C3D4E5',
+                prefixIcon: Icon(Icons.qr_code),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Enter the QR code printed on the household card (e.g. HKS-A1B2C3D4E5)',
+              style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(s.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              final code = ctrl.text.trim();
+              Navigator.pop(context);
+              _manualLookup(code);
+            },
+            child: Text(s.submit2),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -62,7 +145,8 @@ class _ScannerScreenState extends State<ScannerScreen> {
       ),
       body: Stack(children: [
         MobileScanner(controller: _controller!, onDetect: _onDetect),
-        // Overlay
+
+        // QR scan overlay frame
         Center(
           child: Container(
             width: 260, height: 260,
@@ -72,7 +156,8 @@ class _ScannerScreenState extends State<ScannerScreen> {
             ),
           ),
         ),
-        // Bottom instruction
+
+        // Bottom instruction + manual entry button
         Positioned(
           bottom: 40, left: 0, right: 0,
           child: Column(children: [
@@ -90,38 +175,31 @@ class _ScannerScreenState extends State<ScannerScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            // Manual QR entry
             TextButton.icon(
               icon: const Icon(Icons.keyboard, color: Colors.white70),
               label: Text(s.manualEntry, style: GoogleFonts.poppins(color: Colors.white70)),
-              onPressed: () {
-                final ctrl = TextEditingController();
-                showDialog(context: context, builder: (_) => AlertDialog(
-                  title: Text(s.enterQrCode),
-                  content: TextField(controller: ctrl, decoration: const InputDecoration(hintText: 'HKS-XXXXXXXXXX')),
-                  actions: [
-                    TextButton(onPressed: () => Navigator.pop(context), child: Text(s.cancel)),
-                    ElevatedButton(
-                      onPressed: () async {
-                        Navigator.pop(context);
-                        if (ctrl.text.isNotEmpty) {
-                          try {
-                            final household = await _api.getHouseholdByQr(ctrl.text);
-                            if (mounted) context.go('/worker/collect', extra: household);
-                          } catch (_) {
-                            if (mounted) ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(s.noData)));
-                          }
-                        }
-                      },
-                      child: Text(s.submit2),
-                    ),
-                  ],
-                ));
-              },
+              onPressed: _manualLoading ? null : _showManualDialog,
             ),
           ]),
         ),
+
+        // Loading overlay for manual lookup
+        if (_manualLoading)
+          Container(
+            color: Colors.black45,
+            child: const Center(
+              child: Card(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 16),
+                    Text('Looking up household…'),
+                  ]),
+                ),
+              ),
+            ),
+          ),
       ]),
     );
   }

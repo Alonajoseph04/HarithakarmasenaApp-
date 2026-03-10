@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/theme_provider.dart';
@@ -23,42 +22,64 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
   int? _selectedWardId;
   bool _loading = true;
   bool _notifying = false;
+  bool _qrLookingUp = false;
 
   @override
   void initState() { super.initState(); _load(); }
 
   Future<void> _load() async {
+    setState(() => _loading = true);
+
+    // ── Step 1: Load wards independently — always loads, never skipped ──
+    List<dynamic> wards = [];
     try {
-      final futures = await Future.wait([_api.getWorkerMe(), _api.getWards()]);
-      final worker = futures[0] as Map<String, dynamic>;
-      final wards = futures[1] as List<dynamic>;
-
-      // Only use a wardId that actually exists in the fetched list — prevents dropdown assertion crash
-      int? wardId = _selectedWardId ?? (worker['ward']?['id'] as int?);
-      if (wardId != null && !wards.any((w) => w['id'] == wardId)) {
-        wardId = null; // reset if not in list
-      }
-
-      Map<String, dynamic>? prog;
-      if (wardId != null) {
-        prog = await _api.getWardProgress(wardId);
-      }
-      if (mounted) {
-        setState(() {
-          _workerData = worker;
-          _allWards = wards;
-          _selectedWardId = wardId;
-          _progress = prog;
-          _loading = false;
-        });
-      }
+      wards = await _api.getWards();
     } catch (e) {
       if (mounted) {
-        setState(() => _loading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to load wards: $e'), backgroundColor: Colors.red),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Could not load wards: $e'),
+          backgroundColor: Colors.red,
+          duration: const Duration(seconds: 5),
+        ));
       }
+    }
+
+    // ── Step 2: Load worker profile — failure is non-fatal ──
+    Map<String, dynamic>? worker;
+    try {
+      worker = await _api.getWorkerMe();
+    } catch (_) {
+      // Worker profile not linked to this user; continue without it
+    }
+
+    // Prefer worker's assigned ward; fall back to first available
+    int? wardId = _selectedWardId;
+    if (wardId == null && worker != null) {
+      wardId = worker['ward']?['id'] as int?;
+    }
+    if (wardId != null && !wards.any((w) => w['id'] == wardId)) {
+      wardId = null;
+    }
+    if (wardId == null && wards.isNotEmpty) {
+      wardId = wards.first['id'] as int?;
+    }
+
+    // ── Step 3: Load ward progress ──
+    Map<String, dynamic>? prog;
+    if (wardId != null) {
+      try {
+        prog = await _api.getWardProgress(wardId);
+      } catch (_) {}
+    }
+
+    if (mounted) {
+      setState(() {
+        _workerData = worker;
+        _allWards = wards;
+        _selectedWardId = wardId;
+        _progress = prog;
+        _loading = false;
+      });
     }
   }
 
@@ -71,27 +92,44 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
   }
 
   Future<void> _notifyWard() async {
-    // Must pick a date at least 3 days from now
-    final minDate = DateTime.now().add(const Duration(days: 3));
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: minDate,
-      firstDate: minDate,
-      lastDate: DateTime.now().add(const Duration(days: 30)),
-      helpText: 'Select Collection Date (min 3 days ahead)',
-    );
-    if (picked == null) return;
-
-    setState(() => _notifying = true);
     final wardName = _allWards.firstWhere(
       (w) => w['id'] == _selectedWardId, orElse: () => {'name': 'your ward'})['name'];
+
+    // Confirm before sending
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogCtx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: Row(children: [
+          const Icon(Icons.campaign, color: Colors.orange),
+          const SizedBox(width: 8),
+          const Text('Notify Households'),
+        ]),
+        content: Text(
+          'Send a collection notification to all households in $wardName right now?',
+          style: GoogleFonts.poppins(fontSize: 14),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(dialogCtx, false), child: const Text('Cancel')),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+            onPressed: () => Navigator.pop(dialogCtx, true),
+            child: const Text('Send Now'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+
+    setState(() => _notifying = true);
     try {
       final res = await _api.notifyWard(
-        message: 'Waste collection is scheduled for ${DateFormat('EEE, dd MMM yyyy').format(picked)} in $wardName. Please keep your waste ready.',
+        wardId: _selectedWardId,
+        message: 'Waste collection is starting now in $wardName. Please keep your waste ready.',
       );
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Notified ${res['notified']} households for ${DateFormat('dd MMM').format(picked)}'),
+          content: Text('Notified ${res['notified']} households in $wardName'),
           backgroundColor: Colors.orange,
         ));
       }
@@ -99,6 +137,79 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red));
     } finally {
       if (mounted) setState(() => _notifying = false);
+    }
+  }
+
+  /// Direct manual QR entry — no scanner screen needed (works on web too)
+  Future<void> _showManualQrDialog() async {
+    final ctrl = TextEditingController();
+    final code = await showDialog<String>(
+      context: context,
+      builder: (dialogCtx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Row(children: [
+          Icon(Icons.qr_code, color: AppTheme.primary),
+          SizedBox(width: 8),
+          Text('Enter QR Code'),
+        ]),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: ctrl,
+              autofocus: true,
+              textCapitalization: TextCapitalization.characters,
+              decoration: const InputDecoration(
+                hintText: 'HKS-A1B2C3D4E5',
+                prefixIcon: Icon(Icons.qr_code_scanner),
+                labelText: 'Household QR Code',
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Enter the QR code printed on the household card.',
+              style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogCtx, null),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(dialogCtx, ctrl.text.trim()),
+            child: const Text('Look Up'),
+          ),
+        ],
+      ),
+    );
+    if (code == null || code.isEmpty) return;
+
+    setState(() => _qrLookingUp = true);
+    try {
+      Map<String, dynamic> household;
+      try {
+        household = await _api.getHouseholdByQr(code);
+      } catch (_) {
+        household = await _api.getHouseholdByCode(code);
+      }
+      if (mounted) {
+        setState(() => _qrLookingUp = false);
+        context.push('/worker/collect', extra: household);
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _qrLookingUp = false);
+        final msg = e.toString().contains('404') || e.toString().contains('not found')
+            ? 'No household found for "$code". Check the code and try again.'
+            : 'Error: $e';
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(msg),
+          backgroundColor: Colors.red,
+          duration: const Duration(seconds: 4),
+        ));
+      }
     }
   }
 
@@ -267,7 +378,7 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
                       onPressed: _notifying ? null : _notifyWard,
                     ),
                     const SizedBox(height: 4),
-                    Text(s.minThreeDays,
+                    Text('Tap to notify all households in the ward immediately',
                         style: GoogleFonts.poppins(fontSize: 11, color: AppTheme.textLight),
                         textAlign: TextAlign.center),
                     const SizedBox(height: 12),
@@ -283,6 +394,22 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
                     onPressed: _selectedWardId == null
                         ? null
                         : () => context.push('/worker/scan', extra: {'ward_id': _selectedWardId}),
+                  ),
+                  const SizedBox(height: 10),
+                  // Direct manual QR entry — always works (no camera needed)
+                  OutlinedButton.icon(
+                    icon: _qrLookingUp
+                        ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2))
+                        : const Icon(Icons.keyboard, color: AppTheme.primary),
+                    label: Text(
+                      _qrLookingUp ? 'Looking up...' : 'Enter QR Code Manually',
+                      style: GoogleFonts.poppins(color: AppTheme.primary, fontWeight: FontWeight.w600),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: AppTheme.primary, width: 1.5),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                    onPressed: (_selectedWardId == null || _qrLookingUp) ? null : _showManualQrDialog,
                   ),
                   if (_selectedWardId == null)
                     Padding(
