@@ -27,9 +27,10 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
   }
 
   void _showAddWorkerDialog([Map<String, dynamic>? existing]) {
-    final fnCtrl = TextEditingController(text: existing?['user']?['first_name'] ?? '');
-    final lnCtrl = TextEditingController(text: existing?['user']?['last_name'] ?? '');
-    final idCtrl = TextEditingController(text: existing?['worker_id'] ?? '');
+    final fnCtrl   = TextEditingController(text: existing?['user']?['first_name'] ?? '');
+    final lnCtrl   = TextEditingController(text: existing?['user']?['last_name'] ?? '');
+    final idCtrl   = TextEditingController(text: existing?['worker_id'] ?? '');
+    final phoneCtrl = TextEditingController(text: existing?['phone'] ?? '');
     final passCtrl = TextEditingController(text: 'worker@123');
     int? wardId = existing?['ward']?['id'];
 
@@ -42,13 +43,26 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
               style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
           content: SingleChildScrollView(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
-              TextField(controller: fnCtrl, decoration: const InputDecoration(labelText: 'First Name')),
+              TextField(controller: fnCtrl, decoration: const InputDecoration(labelText: 'First Name', prefixIcon: Icon(Icons.person))),
               const SizedBox(height: 10),
-              TextField(controller: lnCtrl, decoration: const InputDecoration(labelText: 'Last Name')),
+              TextField(controller: lnCtrl, decoration: const InputDecoration(labelText: 'Last Name', prefixIcon: Icon(Icons.person_outline))),
               const SizedBox(height: 10),
-              TextField(controller: idCtrl, decoration: const InputDecoration(labelText: 'Worker ID')),
+              TextField(controller: idCtrl, decoration: const InputDecoration(labelText: 'Worker ID', prefixIcon: Icon(Icons.badge))),
               const SizedBox(height: 10),
-              if (existing == null) TextField(controller: passCtrl, decoration: const InputDecoration(labelText: 'Password')),
+              TextField(
+                controller: phoneCtrl,
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  labelText: 'Contact Number',
+                  prefixIcon: Icon(Icons.phone),
+                  hintText: 'e.g. 9876543210',
+                ),
+              ),
+              const SizedBox(height: 10),
+              if (existing == null) TextField(
+                controller: passCtrl,
+                decoration: const InputDecoration(labelText: 'Password', prefixIcon: Icon(Icons.lock)),
+              ),
               if (existing == null) const SizedBox(height: 10),
               DropdownButtonFormField<int>(
                 value: wardId,
@@ -58,7 +72,7 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
                   child: Text(w['name'].toString()),
                 )).toList(),
                 onChanged: (v) => ss(() => wardId = v),
-                decoration: const InputDecoration(labelText: 'Assign Ward'),
+                decoration: const InputDecoration(labelText: 'Assign Ward', prefixIcon: Icon(Icons.location_city)),
               ),
             ]),
           ),
@@ -71,20 +85,27 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
                   if (existing == null) {
                     await _api.createWorker({
                       'worker_id': idCtrl.text,
+                      'phone': phoneCtrl.text.trim().isNotEmpty ? phoneCtrl.text.trim() : null,
                       'ward_id': wardId,
                       'is_active': true,
                       'user_data': {
-                        'first_name': fnCtrl.text, 'last_name': lnCtrl.text,
+                        'first_name': fnCtrl.text,
+                        'last_name': lnCtrl.text,
                         'password': passCtrl.text,
                       },
                     });
                   } else {
-                    await _api.updateWorker(existing['id'] as int, {'ward_id': wardId});
+                    await _api.updateWorker(existing['id'] as int, {
+                      'ward_id': wardId,
+                      'phone': phoneCtrl.text.trim().isNotEmpty ? phoneCtrl.text.trim() : null,
+                    });
                   }
                   _load();
                 } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Error: ${e.toString().substring(0, 80)}')));
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Error: ${e.toString().substring(0, 100)}')));
+                  }
                 }
               },
               child: Text(existing == null ? 'Add' : 'Save'),
@@ -116,28 +137,53 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
                       itemBuilder: (ctx, i) {
                         final w = _workers[i];
                         final user = w['user'] ?? {};
+                        final phone = (w['phone'] ?? '').toString().trim();
                         return Card(
                           margin: const EdgeInsets.only(bottom: 10),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                           child: ListTile(
                             leading: CircleAvatar(
                               backgroundColor: AppTheme.primary,
-                              child: Text(w['worker_id'].toString().substring(0,2),
-                                  style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                              child: Text(
+                                w['worker_id'].toString().length >= 2
+                                    ? w['worker_id'].toString().substring(0, 2)
+                                    : w['worker_id'].toString(),
+                                style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            title: Text('${user['first_name']} ${user['last_name']}',
-                                style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-                            subtitle: Text('ID: ${w['worker_id']} • ${w['ward']?['name'] ?? 'No ward'}',
-                                style: GoogleFonts.poppins(fontSize: 12)),
+                            title: Text(
+                              '${user['first_name'] ?? ''} ${user['last_name'] ?? ''}'.trim(),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('ID: ${w['worker_id']} • ${w['ward']?['name'] ?? 'No ward'}',
+                                    style: GoogleFonts.poppins(fontSize: 12)),
+                                if (phone.isNotEmpty)
+                                  Row(children: [
+                                    const Icon(Icons.phone, size: 12, color: AppTheme.primary),
+                                    const SizedBox(width: 4),
+                                    Text(phone,
+                                        style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.primary, fontWeight: FontWeight.w600)),
+                                  ]),
+                              ],
+                            ),
+                            isThreeLine: phone.isNotEmpty,
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                IconButton(icon: const Icon(Icons.edit, color: AppTheme.primary),
-                                    onPressed: () => _showAddWorkerDialog(w)),
-                                IconButton(icon: const Icon(Icons.delete, color: Colors.red),
-                                    onPressed: () async {
-                                      await _api.deleteWorker(w['id'] as int);
-                                      _load();
-                                    }),
+                                IconButton(
+                                  icon: const Icon(Icons.edit, color: AppTheme.primary),
+                                  onPressed: () => _showAddWorkerDialog(w),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.delete, color: Colors.red),
+                                  onPressed: () async {
+                                    await _api.deleteWorker(w['id'] as int);
+                                    _load();
+                                  },
+                                ),
                               ],
                             ),
                           ),

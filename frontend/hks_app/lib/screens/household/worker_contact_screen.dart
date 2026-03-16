@@ -100,7 +100,12 @@ class _WorkerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = worker['user'] as Map<String, dynamic>? ?? {};
     final name = '${user['first_name'] ?? ''} ${user['last_name'] ?? ''}'.trim();
-    final phone = user['phone'] as String? ?? '';
+    // Prefer worker's direct phone; fall back to user account phone
+    final phone = (worker['phone']?.toString().trim().isNotEmpty == true
+            ? worker['phone']
+            : user['phone'])
+        ?.toString()
+        .trim() ?? '';
     final workerId = worker['worker_id'] as String? ?? '-';
 
     return Card(

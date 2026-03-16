@@ -178,18 +178,51 @@ class SkipRequestViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.role == 'household':
-            return SkipRequest.objects.filter(household__user=user)
+            from django.db.models import Q
+            # Match by FK (if linked) OR by phone (for unlinked accounts)
+            q = Q(household__user=user)
+            if user.phone:
+                q |= Q(household__phone=user.phone)
+            return SkipRequest.objects.filter(q).distinct()
         elif user.role == 'worker':
             try:
-                ward = user.worker_profile.ward
-                return SkipRequest.objects.filter(household__ward=ward)
+                from hks_workers.models import Worker
+                worker = Worker.objects.get(user=user)
+                return SkipRequest.objects.filter(household__ward=worker.ward)
             except Exception:
                 return SkipRequest.objects.none()
         return SkipRequest.objects.all()
 
     def perform_create(self, serializer):
         from hks_households.models import Household
-        household = Household.objects.get(user=self.request.user)
+        from rest_framework.exceptions import ValidationError
+
+        household = None
+        user = self.request.user
+
+        # Strategy 1: linked via OneToOne FK (household.user)
+        try:
+            household = Household.objects.get(user=user)
+        except Household.DoesNotExist:
+            pass
+
+        # Strategy 2: linked by matching phone number (how the `me` endpoint works)
+        if household is None and user.phone:
+            try:
+                household = Household.objects.get(phone=user.phone)
+                # Auto-link the user FK for future requests
+                if not household.user:
+                    household.user = user
+                    household.save(update_fields=['user'])
+            except Household.DoesNotExist:
+                pass
+
+        if household is None:
+            raise ValidationError(
+                'No household profile is linked to your account. '
+                'Please contact admin to link your account.'
+            )
+
         skip = serializer.save(household=household)
         from hks_workers.models import Worker
         ward_workers = Worker.objects.filter(ward=household.ward, is_active=True)
@@ -210,9 +243,19 @@ class SkipRequestViewSet(viewsets.ModelViewSet):
         skip.status = 'acknowledged'
         skip.acknowledged_at = timezone.now()
         skip.save()
-        if skip.household.user:
+        # Notify household — try FK first, then phone
+        recipient = skip.household.user
+        if recipient is None and skip.household.phone:
+            from hks_users.models import HKSUser
+            try:
+                recipient = HKSUser.objects.get(phone=skip.household.phone, role='household')
+                skip.household.user = recipient
+                skip.household.save(update_fields=['user'])
+            except HKSUser.DoesNotExist:
+                pass
+        if recipient:
             _notify(
-                skip.household.user,
+                recipient,
                 'Skip Request Acknowledged',
                 f'Your collection skip for {skip.date} has been acknowledged.',
                 message_ml=f'{skip.date}-ലെ ശേഖരണം ഒഴിവാക്കൽ അംഗീകരിച്ചു.',
@@ -229,12 +272,18 @@ class ExtraPickupRequestViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.role == 'household':
-            return ExtraPickupRequest.objects.filter(household__user=user)
+            from django.db.models import Q
+            # Match by FK (if linked) OR by phone (for unlinked accounts)
+            q = Q(household__user=user)
+            if user.phone:
+                q |= Q(household__phone=user.phone)
+            return ExtraPickupRequest.objects.filter(q).distinct()
         elif user.role == 'worker':
             try:
-                ward = user.worker_profile.ward
+                from hks_workers.models import Worker
+                worker = Worker.objects.get(user=user)
                 return ExtraPickupRequest.objects.filter(
-                    household__ward=ward, date=date.today()
+                    household__ward=worker.ward, date=date.today()
                 )
             except Exception:
                 return ExtraPickupRequest.objects.none()
@@ -243,7 +292,33 @@ class ExtraPickupRequestViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         from hks_households.models import Household
-        household = Household.objects.get(user=self.request.user)
+        from rest_framework.exceptions import ValidationError
+
+        household = None
+        user = self.request.user
+
+        # Strategy 1: linked via OneToOne FK
+        try:
+            household = Household.objects.get(user=user)
+        except Household.DoesNotExist:
+            pass
+
+        # Strategy 2: match by phone and auto-link
+        if household is None and user.phone:
+            try:
+                household = Household.objects.get(phone=user.phone)
+                if not household.user:
+                    household.user = user
+                    household.save(update_fields=['user'])
+            except Household.DoesNotExist:
+                pass
+
+        if household is None:
+            raise ValidationError(
+                'No household profile is linked to your account. '
+                'Please contact admin to link your account.'
+            )
+
         req = serializer.save(household=household, date=date.today())
 
         # Notify ward workers

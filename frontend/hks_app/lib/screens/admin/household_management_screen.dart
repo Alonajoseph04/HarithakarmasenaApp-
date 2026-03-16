@@ -125,7 +125,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
     final qrCode = (household['qr_code'] ?? '').toString().trim();
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
+      builder: (dialogCtx) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(household['name'], style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
         content: Column(
@@ -151,7 +151,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 10)],
+                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 10)],
                 ),
                 child: QrImageView(data: qrCode, version: QrVersions.auto, size: 200),
               ),
@@ -169,7 +169,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
             ],
           ],
         ),
-        actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close'))],
+        actions: [TextButton(onPressed: () => Navigator.pop(dialogCtx), child: const Text('Close'))],
       ),
     );
   }

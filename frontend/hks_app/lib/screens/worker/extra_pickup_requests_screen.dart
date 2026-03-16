@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../providers/language_provider.dart';
@@ -6,38 +6,76 @@ import '../../providers/theme_provider.dart';
 import '../../services/api_service.dart';
 import '../../theme/app_theme.dart';
 
-/// Worker screen: view and approve/reject today's extra pickup requests.
+/// Worker screen: tabbed view showing Extra Pickup Requests and Household Skip Requests.
 class ExtraPickupRequestsScreen extends StatefulWidget {
   const ExtraPickupRequestsScreen({super.key});
   @override
   State<ExtraPickupRequestsScreen> createState() => _ExtraPickupRequestsScreenState();
 }
 
-class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen> {
+class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
+    with SingleTickerProviderStateMixin {
   final _api = ApiService();
-  List<dynamic> _requests = [];
-  bool _loading = true;
+  late TabController _tabController;
+
+  // Extra pickup
+  List<dynamic> _pickupRequests = [];
+  bool _pickupLoading = true;
+
+  // Skip requests
+  List<dynamic> _skipRequests = [];
+  bool _skipLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _load();
+    _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        if (_tabController.index == 0) {
+          _loadPickup();
+        } else {
+          _loadSkip();
+        }
+      }
+    });
+    _loadPickup();
+    _loadSkip();
   }
 
-  Future<void> _load() async {
-    setState(() => _loading = true);
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadPickup() async {
+    setState(() => _pickupLoading = true);
     try {
       final reqs = await _api.getExtraPickupRequests();
-      if (mounted) setState(() { _requests = reqs; _loading = false; });
+      if (mounted) setState(() { _pickupRequests = reqs; _pickupLoading = false; });
     } catch (_) {
-      if (mounted) setState(() => _loading = false);
+      if (mounted) setState(() => _pickupLoading = false);
+    }
+  }
+
+  Future<void> _loadSkip() async {
+    setState(() => _skipLoading = true);
+    try {
+      final reqs = await _api.getWorkerSkipRequests();
+      if (mounted) setState(() { _skipRequests = reqs; _skipLoading = false; });
+    } catch (_) {
+      if (mounted) setState(() => _skipLoading = false);
     }
   }
 
   Future<void> _approve(int id) async {
     try {
       await _api.approveExtraPickup(id);
-      if (mounted) { await _load(); _flash(Colors.green, context.read<LanguageProvider>().strings.approvedLabel); }
+      if (mounted) {
+        await _loadPickup();
+        _flash(Colors.green, context.read<LanguageProvider>().strings.approvedLabel);
+      }
     } catch (e) { _flash(AppTheme.error, 'Error: $e'); }
   }
 
@@ -61,8 +99,20 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen> {
     if (confirmed != true || !mounted) return;
     try {
       await _api.rejectExtraPickup(id, reason: reasonCtrl.text.trim());
-      if (mounted) { await _load(); _flash(Colors.red.shade300, s.rejectedLabel); }
+      if (mounted) { await _loadPickup(); _flash(Colors.red.shade300, s.rejectedLabel); }
     } catch (e) { _flash(AppTheme.error, 'Error: $e'); }
+  }
+
+  Future<void> _acknowledgeSkip(int id) async {
+    try {
+      await _api.acknowledgeSkipRequest(id);
+      if (mounted) {
+        await _loadSkip();
+        _flash(Colors.green, 'Skip request acknowledged');
+      }
+    } catch (e) {
+      _flash(AppTheme.error, 'Error: $e');
+    }
   }
 
   void _flash(Color bg, String msg) {
@@ -75,51 +125,150 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen> {
   @override
   Widget build(BuildContext context) {
     final s = context.watch<LanguageProvider>().strings;
-    final pending = _requests.where((r) => r['status'] == 'pending').toList();
-    final reviewed = _requests.where((r) => r['status'] != 'pending').toList();
+    final pendingPickup = _pickupRequests.where((r) => r['status'] == 'pending').length;
+    final pendingSkip = _skipRequests.length;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(s.extraPickupRequests),
         actions: [
-          IconButton(icon: const Icon(Icons.refresh_rounded), onPressed: _load),
+          IconButton(
+            icon: const Icon(Icons.refresh_rounded),
+            onPressed: () {
+              _loadPickup();
+              _loadSkip();
+            },
+          ),
           const LangToggleButton(),
           const ThemeToggleButton(),
           const SizedBox(width: 8),
         ],
+        bottom: TabBar(
+          controller: _tabController,
+          indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white60,
+          tabs: [
+            Tab(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.add_box_rounded, size: 18),
+                  const SizedBox(width: 6),
+                  Text('Extra Pickup', style: GoogleFonts.poppins(fontSize: 13)),
+                  if (pendingPickup > 0) ...[
+                    const SizedBox(width: 6),
+                    _Badge(count: pendingPickup, color: Colors.orange),
+                  ],
+                ],
+              ),
+            ),
+            Tab(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.skip_next_rounded, size: 18),
+                  const SizedBox(width: 6),
+                  Text('Skip Requests', style: GoogleFonts.poppins(fontSize: 13)),
+                  if (pendingSkip > 0) ...[
+                    const SizedBox(width: 6),
+                    _Badge(count: pendingSkip, color: Colors.red),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : _requests.isEmpty
-              ? Center(child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const Icon(Icons.inbox_rounded, size: 64, color: Colors.grey),
-                  const SizedBox(height: 12),
-                  Text(s.noExtraRequests,
-                      style: GoogleFonts.poppins(color: AppTheme.textLight, fontSize: 15)),
-                ]))
-              : RefreshIndicator(
-                  onRefresh: _load,
-                  child: ListView(
-                    padding: const EdgeInsets.all(14),
-                    children: [
-                      if (pending.isNotEmpty) ...[
-                        _SectionHeader(label: '${s.pendingRequests} (${pending.length})', color: Colors.orange),
-                        ...pending.map((r) => _RequestCard(
-                          req: r, s: s,
-                          onApprove: () => _approve(r['id'] as int),
-                          onReject: () => _reject(r['id'] as int),
-                        )),
-                        const SizedBox(height: 16),
-                      ],
-                      if (reviewed.isNotEmpty) ...[
-                        _SectionHeader(label: 'Today\'s Reviewed', color: Colors.blue),
-                        ...reviewed.map((r) => _RequestCard(req: r, s: s)),
-                      ],
-                    ],
-                  ),
-                ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          // ── Tab 1: Extra Pickup Requests ──────────────────────────
+          _pickupLoading
+              ? const Center(child: CircularProgressIndicator())
+              : _pickupRequests.isEmpty
+                  ? _EmptyState(icon: Icons.inbox_rounded, label: s.noExtraRequests)
+                  : RefreshIndicator(
+                      onRefresh: _loadPickup,
+                      child: ListView(
+                        padding: const EdgeInsets.all(14),
+                        children: [
+                          ..._pickupRequests
+                              .where((r) => r['status'] == 'pending')
+                              .map((r) => _RequestCard(
+                                    req: r, s: s,
+                                    onApprove: () => _approve(r['id'] as int),
+                                    onReject: () => _reject(r['id'] as int),
+                                  )),
+                          if (_pickupRequests.any((r) => r['status'] != 'pending')) ...[
+                            _SectionHeader(label: "Today's Reviewed", color: Colors.blue),
+                            ..._pickupRequests
+                                .where((r) => r['status'] != 'pending')
+                                .map((r) => _RequestCard(req: r, s: s)),
+                          ],
+                        ],
+                      ),
+                    ),
+
+          // ── Tab 2: Skip Requests ──────────────────────────────────
+          _skipLoading
+              ? const Center(child: CircularProgressIndicator())
+              : _skipRequests.isEmpty
+                  ? _EmptyState(
+                      icon: Icons.check_circle_outline_rounded,
+                      label: 'No pending skip requests',
+                    )
+                  : RefreshIndicator(
+                      onRefresh: _loadSkip,
+                      child: ListView.builder(
+                        padding: const EdgeInsets.all(14),
+                        itemCount: _skipRequests.length,
+                        itemBuilder: (ctx, i) {
+                          final r = _skipRequests[i];
+                          return _SkipRequestCard(
+                            req: r,
+                            onAcknowledge: () => _acknowledgeSkip(r['id'] as int),
+                          );
+                        },
+                      ),
+                    ),
+        ],
+      ),
     );
   }
+}
+
+// ─── Widgets ───────────────────────────────────────────────────────────────
+
+class _Badge extends StatelessWidget {
+  final int count;
+  final Color color;
+  const _Badge({required this.count, required this.color});
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: 20, height: 20,
+    decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    child: Center(
+      child: Text('$count',
+          style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
+    ),
+  );
+}
+
+class _EmptyState extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  const _EmptyState({required this.icon, required this.label});
+
+  @override
+  Widget build(BuildContext context) => Center(
+    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Icon(icon, size: 64, color: Colors.grey),
+      const SizedBox(height: 12),
+      Text(label, style: GoogleFonts.poppins(color: AppTheme.textLight, fontSize: 15)),
+    ]),
+  );
 }
 
 class _SectionHeader extends StatelessWidget {
@@ -130,10 +279,12 @@ class _SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.symmetric(vertical: 8),
-    child: Text(label, style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 14, color: color)),
+    child: Text(label,
+        style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 14, color: color)),
   );
 }
 
+/// Card for Extra Pickup Requests (approve / reject)
 class _RequestCard extends StatelessWidget {
   final Map<String, dynamic> req;
   final AppStrings s;
@@ -146,8 +297,16 @@ class _RequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final status = req['status'] as String? ?? 'pending';
     final isPending = status == 'pending';
-    final statusColor = status == 'approved' ? Colors.green : status == 'rejected' ? Colors.red : Colors.orange;
-    final statusLabel = status == 'approved' ? s.approvedLabel : status == 'rejected' ? s.rejectedLabel : s.pending;
+    final statusColor = status == 'approved'
+        ? Colors.green
+        : status == 'rejected'
+            ? Colors.red
+            : Colors.orange;
+    final statusLabel = status == 'approved'
+        ? s.approvedLabel
+        : status == 'rejected'
+            ? s.rejectedLabel
+            : s.pending;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 10),
@@ -181,13 +340,15 @@ class _RequestCard extends StatelessWidget {
                 border: Border.all(color: statusColor),
               ),
               child: Text(statusLabel,
-                  style: GoogleFonts.poppins(fontSize: 12, color: statusColor, fontWeight: FontWeight.w600)),
+                  style: GoogleFonts.poppins(
+                      fontSize: 12, color: statusColor, fontWeight: FontWeight.w600)),
             ),
           ]),
           if ((req['notes'] ?? '').toString().isNotEmpty) ...[
             const SizedBox(height: 8),
             Text('"${req['notes']}"',
-                style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight, fontStyle: FontStyle.italic)),
+                style: GoogleFonts.poppins(
+                    fontSize: 12, color: AppTheme.textLight, fontStyle: FontStyle.italic)),
           ],
           if (isPending) ...[
             const SizedBox(height: 12),
@@ -218,6 +379,107 @@ class _RequestCard extends StatelessWidget {
                 ),
               ),
             ]),
+          ],
+        ]),
+      ),
+    );
+  }
+}
+
+/// Card for Skip Requests (acknowledge)
+class _SkipRequestCard extends StatelessWidget {
+  final Map<String, dynamic> req;
+  final VoidCallback onAcknowledge;
+  const _SkipRequestCard({required this.req, required this.onAcknowledge});
+
+  @override
+  Widget build(BuildContext context) {
+    final householdName = req['household_name'] ?? req['household']?['name'] ?? 'Unknown';
+    final date = req['date'] ?? '';
+    final reason = (req['reason'] ?? '').toString().trim();
+    final status = req['status'] ?? 'pending';
+    final isPending = status == 'pending';
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      elevation: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Row(children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.orange.withAlpha(30),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(Icons.skip_next_rounded, color: Colors.orange, size: 22),
+            ),
+            const SizedBox(width: 12),
+            Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(householdName,
+                  style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15)),
+              Row(children: [
+                const Icon(Icons.calendar_today, size: 13, color: AppTheme.textLight),
+                const SizedBox(width: 4),
+                Text(
+                  'Skip on $date',
+                  style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight),
+                ),
+              ]),
+            ])),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: isPending ? Colors.orange.withAlpha(25) : Colors.green.withAlpha(25),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: isPending ? Colors.orange : Colors.green),
+              ),
+              child: Text(
+                isPending ? 'Pending' : 'Noted',
+                style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: isPending ? Colors.orange : Colors.green,
+                ),
+              ),
+            ),
+          ]),
+          if (reason.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.grey.withAlpha(20),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(children: [
+                const Icon(Icons.comment_outlined, size: 14, color: AppTheme.textLight),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(reason,
+                      style: GoogleFonts.poppins(
+                          fontSize: 12, color: AppTheme.textLight, fontStyle: FontStyle.italic)),
+                ),
+              ]),
+            ),
+          ],
+          if (isPending) ...[
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: onAcknowledge,
+                icon: const Icon(Icons.check_rounded, size: 18),
+                label: Text('Acknowledge',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  minimumSize: const Size(0, 42),
+                ),
+              ),
+            ),
           ],
         ]),
       ),

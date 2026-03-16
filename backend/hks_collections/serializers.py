@@ -38,6 +38,10 @@ class CollectionSerializer(serializers.ModelSerializer):
         ]
 
 class CollectionCreateSerializer(serializers.ModelSerializer):
+    weight = serializers.DecimalField(max_digits=6, decimal_places=2, required=False, allow_null=True, default=0)
+    rate   = serializers.DecimalField(max_digits=6, decimal_places=2, required=False, allow_null=True, default=0)
+    amount = serializers.DecimalField(max_digits=10, decimal_places=2, required=False, allow_null=True)
+
     class Meta:
         model = Collection
         fields = [
@@ -49,14 +53,32 @@ class CollectionCreateSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
-        if 'amount' not in validated_data or not validated_data['amount']:
-            validated_data['amount'] = validated_data['weight'] * validated_data['rate']
+        # If amount not provided, use household monthly_fee
+        if not validated_data.get('amount'):
+            household = validated_data.get('household')
+            if household:
+                validated_data['amount'] = household.monthly_fee
+            elif validated_data.get('weight') and validated_data.get('rate'):
+                validated_data['amount'] = validated_data['weight'] * validated_data['rate']
+            else:
+                validated_data['amount'] = 0
+        # Default weight/rate to 0 if not provided
+        if not validated_data.get('weight'):
+            validated_data['weight'] = 0
+        if not validated_data.get('rate'):
+            validated_data['rate'] = 0
         return super().create(validated_data)
 
 
 class SkipRequestSerializer(serializers.ModelSerializer):
     household_name = serializers.CharField(source='household.name', read_only=True)
     ward_name = serializers.CharField(source='household.ward.name', read_only=True)
+    # payment_action is optional — default 'defer' is used if not provided
+    payment_action = serializers.ChoiceField(
+        choices=[('defer', 'Defer to next month'), ('waive', 'Waive')],
+        default='defer',
+        required=False,
+    )
 
     class Meta:
         model = SkipRequest
@@ -65,7 +87,8 @@ class SkipRequestSerializer(serializers.ModelSerializer):
             'date', 'reason', 'payment_action', 'status',
             'created_at', 'acknowledged_at'
         ]
-        read_only_fields = ['status', 'acknowledged_at']
+        # household is injected by perform_create — do NOT require it from the client
+        read_only_fields = ['household', 'status', 'acknowledged_at']
 
 
 class ExtraPickupRequestSerializer(serializers.ModelSerializer):

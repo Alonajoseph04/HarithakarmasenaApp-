@@ -95,7 +95,24 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
     final wardName = _allWards.firstWhere(
       (w) => w['id'] == _selectedWardId, orElse: () => {'name': 'your ward'})['name'];
 
-    // Confirm before sending
+    // Step 1: Pick a collection date — only today or future dates
+    final today = DateTime.now();
+    final todayOnly = DateTime(today.year, today.month, today.day);
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialDate: todayOnly,
+      firstDate: todayOnly,
+      lastDate: DateTime(2100),
+      helpText: 'Select Collection Date',
+      confirmText: 'Next',
+      cancelText: 'Cancel',
+    );
+    if (pickedDate == null) return; // user cancelled
+
+    final dateStr =
+        '${pickedDate.day.toString().padLeft(2, '0')}/${pickedDate.month.toString().padLeft(2, '0')}/${pickedDate.year}';
+
+    // Step 2: Confirm before sending
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogCtx) => AlertDialog(
@@ -106,7 +123,7 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
           const Text('Notify Households'),
         ]),
         content: Text(
-          'Send a collection notification to all households in $wardName right now?',
+          'Send a collection notification to all households in $wardName for $dateStr?',
           style: GoogleFonts.poppins(fontSize: 14),
         ),
         actions: [
@@ -114,7 +131,7 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
             onPressed: () => Navigator.pop(dialogCtx, true),
-            child: const Text('Send Now'),
+            child: const Text('Send Notification'),
           ),
         ],
       ),
@@ -123,14 +140,23 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
 
     setState(() => _notifying = true);
     try {
+      final scheduledDateIso =
+          '${pickedDate.year}-${pickedDate.month.toString().padLeft(2, '0')}-${pickedDate.day.toString().padLeft(2, '0')}';
       final res = await _api.notifyWard(
         wardId: _selectedWardId,
-        message: 'Waste collection is starting now in $wardName. Please keep your waste ready.',
+        message: 'Waste collection is scheduled for $dateStr in $wardName. Please keep your waste ready.',
+        scheduledDate: scheduledDateIso,
       );
       if (mounted) {
+        final total = res['notified'] ?? 0;
+        final appNotified = res['notified_app'] ?? 0;
+        final msg = appNotified > 0
+            ? 'Notified $appNotified of $total households via app in $wardName for $dateStr'
+            : 'Notification sent for $wardName on $dateStr. ($total households in ward, none with app accounts)';
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Notified ${res['notified']} households in $wardName'),
+          content: Text(msg),
           backgroundColor: Colors.orange,
+          duration: const Duration(seconds: 4),
         ));
       }
     } catch (e) {

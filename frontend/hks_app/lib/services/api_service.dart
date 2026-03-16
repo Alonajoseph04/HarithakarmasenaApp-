@@ -211,11 +211,26 @@ class ApiService {
   }
 
   // WORKER NOTIFY WARD
-  Future<Map<String, dynamic>> notifyWard({String? message, int? wardId}) async {
+  Future<Map<String, dynamic>> notifyWard({String? message, int? wardId, String? scheduledDate}) async {
     final data = <String, dynamic>{};
     if (message != null) data['message'] = message;
     if (wardId != null) data['ward_id'] = wardId;
+    if (scheduledDate != null) data['scheduled_date'] = scheduledDate;
     final res = await _dio.post('/workers/notify_ward/', data: data);
+    return res.data;
+  }
+
+  // WORKER COVERAGE (admin view: covered/pending houses by worker in ward)
+  Future<Map<String, dynamic>> getWorkerCoverage({
+    required int wardId,
+    int? workerId,
+    String status = 'all', // 'covered', 'pending', or 'all'
+    String? date,
+  }) async {
+    final params = <String, dynamic>{'ward_id': wardId, 'status': status};
+    if (workerId != null) params['worker_id'] = workerId;
+    if (date != null) params['date'] = date;
+    final res = await _dio.get('/workers/worker_coverage/', queryParameters: params);
     return res.data;
   }
 

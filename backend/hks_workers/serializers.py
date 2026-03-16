@@ -14,7 +14,7 @@ class WorkerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Worker
-        fields = ['id', 'worker_id', 'user', 'ward', 'ward_id', 'is_active', 'created_at', 'user_data']
+        fields = ['id', 'worker_id', 'phone', 'user', 'ward', 'ward_id', 'is_active', 'created_at', 'user_data']
 
     def create(self, validated_data):
         from hks_users.models import HKSUser

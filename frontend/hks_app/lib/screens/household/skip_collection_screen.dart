@@ -14,7 +14,6 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
   final _api = ApiService();
   final _reasonCtrl = TextEditingController();
   DateTime _selectedDate = DateTime.now();
-  String _paymentAction = 'defer';
   bool _submitting = false;
   List<dynamic> _existingRequests = [];
   bool _loading = true;
@@ -26,7 +25,9 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
     try {
       final reqs = await _api.getSkipRequests();
       setState(() { _existingRequests = reqs; _loading = false; });
-    } catch (_) { setState(() => _loading = false); }
+    } catch (e) {
+      setState(() => _loading = false);
+    }
   }
 
   Future<void> _submit() async {
@@ -35,22 +36,44 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
       await _api.createSkipRequest({
         'date': DateFormat('yyyy-MM-dd').format(_selectedDate),
         'reason': _reasonCtrl.text.trim(),
-        'payment_action': _paymentAction,
+        'payment_action': 'defer',   // default — kept for model compatibility
       });
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Skip request sent for ${DateFormat('dd MMM yyyy').format(_selectedDate)}. Workers have been notified.'),
-            backgroundColor: AppTheme.primary,
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+            'Skip request sent for ${DateFormat('dd MMM yyyy').format(_selectedDate)}. Your ward worker has been notified.',
           ),
-        );
+          backgroundColor: Colors.orange,
+        ));
         _reasonCtrl.clear();
         _load();
       }
     } catch (e) {
       if (mounted) {
+        // Try to extract a clean message from DRF error response
+        String msg = 'Could not send skip request. Please try again.';
+        final raw = e.toString();
+        if (raw.contains('No household profile')) {
+          msg = 'Your account is not linked to a household. Please contact admin.';
+        } else if (raw.contains('400') || raw.contains('non_field_errors') || raw.contains('detail')) {
+          // Try to get the actual server error message
+          try {
+            final dioErr = e as dynamic;
+            final data = dioErr.response?.data;
+            if (data is Map) {
+              final detail = data['detail'] ?? data['non_field_errors']?.first ?? data.values.first;
+              if (detail != null) msg = detail.toString();
+            } else if (data is String) {
+              msg = data;
+            }
+          } catch (_) {}
+        }
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: ${e.toString()}'), backgroundColor: AppTheme.error),
+          SnackBar(
+            content: Text(msg),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 5),
+          ),
         );
       }
     } finally {
@@ -80,7 +103,8 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        'Use this if waste collection is not required on a particular day. Your ward worker will be notified.',
+                        'Notify your ward worker if you don\'t need collection on a specific day. '
+                        'This is just a notification — no payment changes.',
                         style: GoogleFonts.poppins(fontSize: 12, color: Colors.orange.shade800),
                       ),
                     ),
@@ -92,12 +116,15 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                 Text('Select Date', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 InkWell(
+                  borderRadius: BorderRadius.circular(12),
                   onTap: () async {
+                    final today = DateTime.now();
                     final d = await showDatePicker(
                       context: context,
                       initialDate: _selectedDate,
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime.now().add(const Duration(days: 30)),
+                      firstDate: today,
+                      lastDate: today.add(const Duration(days: 60)),
+                      helpText: 'Select Skip Date',
                     );
                     if (d != null) setState(() => _selectedDate = d);
                   },
@@ -110,34 +137,16 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                     child: Row(children: [
                       const Icon(Icons.calendar_today, color: AppTheme.primary),
                       const SizedBox(width: 10),
-                      Text(DateFormat('EEEE, dd MMM yyyy').format(_selectedDate),
-                          style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500)),
+                      Text(
+                        DateFormat('EEEE, dd MMM yyyy').format(_selectedDate),
+                        style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_drop_down, color: AppTheme.textLight),
                     ]),
                   ),
                 ),
-                const SizedBox(height: 16),
-
-                // Payment action
-                Text('Payment for this day', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-                const SizedBox(height: 8),
-                Row(children: [
-                  Expanded(child: _PayOption(
-                    label: 'Defer to Next Month',
-                    icon: Icons.schedule,
-                    selected: _paymentAction == 'defer',
-                    onTap: () => setState(() => _paymentAction = 'defer'),
-                    color: Colors.orange,
-                  )),
-                  const SizedBox(width: 10),
-                  Expanded(child: _PayOption(
-                    label: 'Waive (No Charge)',
-                    icon: Icons.money_off,
-                    selected: _paymentAction == 'waive',
-                    onTap: () => setState(() => _paymentAction = 'waive'),
-                    color: Colors.green,
-                  )),
-                ]),
-                const SizedBox(height: 16),
+                const SizedBox(height: 20),
 
                 // Reason
                 Text('Reason (optional)', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
@@ -148,20 +157,26 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                   decoration: const InputDecoration(
                     hintText: 'e.g. I will not be home today',
                     alignLabelWithHint: true,
+                    prefixIcon: Icon(Icons.edit_note),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
 
-                ElevatedButton.icon(
-                  onPressed: _submitting ? null : _submit,
-                  icon: _submitting
-                      ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                      : const Icon(Icons.send),
-                  label: Text(_submitting ? 'Sending...' : 'Send Skip Request'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    textStyle: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: _submitting ? null : _submit,
+                    icon: _submitting
+                        ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                        : const Icon(Icons.send),
+                    label: Text(
+                      _submitting ? 'Sending Request...' : 'Send Skip Request',
+                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
                   ),
                 ),
 
@@ -174,13 +189,22 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                     margin: const EdgeInsets.only(bottom: 8),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     child: ListTile(
-                      leading: Icon(
-                        r['status'] == 'acknowledged' ? Icons.check_circle : Icons.hourglass_empty,
-                        color: r['status'] == 'acknowledged' ? Colors.green : Colors.orange,
+                      leading: CircleAvatar(
+                        backgroundColor: r['status'] == 'acknowledged'
+                            ? Colors.green.shade50
+                            : Colors.orange.shade50,
+                        child: Icon(
+                          r['status'] == 'acknowledged' ? Icons.check_circle : Icons.hourglass_empty,
+                          color: r['status'] == 'acknowledged' ? Colors.green : Colors.orange,
+                        ),
                       ),
-                      title: Text(r['date'].toString(), style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-                      subtitle: Text('${r['payment_action'] == 'defer' ? 'Defer to next month' : 'Waive'}  •  ${r['reason'] ?? ''}',
-                          style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
+                      title: Text(
+                        r['date'].toString(),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                      ),
+                      subtitle: r['reason'] != null && r['reason'].toString().isNotEmpty
+                          ? Text(r['reason'].toString(), style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight))
+                          : null,
                       trailing: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
@@ -188,7 +212,7 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
-                          r['status'] == 'acknowledged' ? 'Acknowledged' : 'Pending',
+                          r['status'] == 'acknowledged' ? 'Noted' : 'Pending',
                           style: GoogleFonts.poppins(
                             fontSize: 10, fontWeight: FontWeight.bold,
                             color: r['status'] == 'acknowledged' ? Colors.green.shade700 : Colors.orange.shade700,
@@ -202,32 +226,4 @@ class _SkipCollectionScreenState extends State<SkipCollectionScreen> {
             ),
     );
   }
-}
-
-class _PayOption extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool selected;
-  final VoidCallback onTap;
-  final Color color;
-  const _PayOption({required this.label, required this.icon, required this.selected, required this.onTap, required this.color});
-
-  @override
-  Widget build(BuildContext context) => GestureDetector(
-    onTap: onTap,
-    child: Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: selected ? color.withOpacity(0.12) : Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: selected ? color : Colors.grey.shade300, width: selected ? 2 : 1),
-      ),
-      child: Column(children: [
-        Icon(icon, color: selected ? color : Colors.grey, size: 26),
-        const SizedBox(height: 6),
-        Text(label, style: GoogleFonts.poppins(fontSize: 11, color: selected ? color : AppTheme.textLight,
-            fontWeight: selected ? FontWeight.w600 : FontWeight.normal), textAlign: TextAlign.center),
-      ]),
-    ),
-  );
 }

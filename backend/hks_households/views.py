@@ -48,8 +48,26 @@ class HouseholdViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def me(self, request):
+        household = None
+
+        # Strategy 1: direct OneToOne FK link (fastest, preferred)
         try:
-            household = Household.objects.get(phone=request.user.phone)
-            return Response(HouseholdSerializer(household).data)
+            household = Household.objects.get(user=request.user)
         except Household.DoesNotExist:
+            pass
+
+        # Strategy 2: match by phone number (household registered before app account)
+        if household is None and request.user.phone:
+            try:
+                household = Household.objects.get(phone=request.user.phone)
+                # Auto-link for all future requests
+                if not household.user:
+                    household.user = request.user
+                    household.save(update_fields=['user'])
+            except Household.DoesNotExist:
+                pass
+
+        if household is None:
             return Response({'error': 'Household profile not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        return Response(HouseholdSerializer(household).data)
