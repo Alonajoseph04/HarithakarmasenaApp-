@@ -150,13 +150,21 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
       if (mounted) {
         final total = res['notified'] ?? 0;
         final appNotified = res['notified_app'] ?? 0;
-        final msg = appNotified > 0
-            ? 'Notified $appNotified of $total households via app in $wardName for $dateStr'
-            : 'Notification sent for $wardName on $dateStr. ($total households in ward, none with app accounts)';
+        final String msg;
+        if (appNotified > 0 && appNotified == total) {
+          msg = 'All $total households in $wardName notified for $dateStr ✓';
+        } else if (appNotified > 0) {
+          msg = 'All $total households in $wardName scheduled for $dateStr. '
+              '$appNotified received in-app alerts (${total - appNotified} have no app account yet).';
+        } else {
+          msg = 'Collection scheduled for $wardName on $dateStr. '
+              '$total households in ward — none have app accounts yet, '
+              'so no in-app alerts were sent.';
+        }
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(msg),
           backgroundColor: Colors.orange,
-          duration: const Duration(seconds: 4),
+          duration: const Duration(seconds: 5),
         ));
       }
     } catch (e) {

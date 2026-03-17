@@ -110,4 +110,4 @@ class ExtraPickupRequestSerializer(serializers.ModelSerializer):
             'waste_type', 'waste_type_display', 'date', 'notes',
             'status', 'reviewed_by', 'reviewed_by_name', 'reviewed_at', 'created_at'
         ]
-        read_only_fields = ['status', 'reviewed_by', 'reviewed_at']
+        read_only_fields = ['household', 'date', 'status', 'reviewed_by', 'reviewed_at']

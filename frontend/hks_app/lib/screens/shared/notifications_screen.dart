@@ -20,16 +20,29 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   Future<void> _load() async {
     try {
       final n = await _api.getNotifications();
-      setState(() { _notifications = n; _loading = false; });
-    } catch (_) { setState(() => _loading = false); }
+      if (mounted) setState(() { _notifications = n; _loading = false; });
+    } catch (e) {
+      if (mounted) {
+        setState(() => _loading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Could not load notifications: ${e.toString().split("\n").first}'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 4),
+          ),
+        );
+      }
+    }
   }
 
   IconData _iconForType(String type) {
     switch (type) {
       case 'collection': return Icons.recycling;
       case 'payment': return Icons.payments;
-      case 'reminder': return Icons.alarm;
+      case 'reminder': return Icons.skip_next_rounded;   // skip collection
       case 'broadcast': return Icons.broadcast_on_personal;
+      case 'pickup': return Icons.add_box_rounded;        // extra pickup
+      case 'feedback': return Icons.star_rounded;         // worker rating
       default: return Icons.notifications;
     }
   }
@@ -38,8 +51,10 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     switch (type) {
       case 'collection': return AppTheme.primary;
       case 'payment': return Colors.orange;
-      case 'reminder': return Colors.blue;
+      case 'reminder': return Colors.deepOrange;  // skip collection
       case 'broadcast': return Colors.purple;
+      case 'pickup': return Colors.teal;          // extra pickup
+      case 'feedback': return Colors.amber;       // worker rating
       default: return Colors.grey;
     }
   }

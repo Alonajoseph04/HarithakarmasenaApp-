@@ -126,7 +126,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
   Widget build(BuildContext context) {
     final s = context.watch<LanguageProvider>().strings;
     final pendingPickup = _pickupRequests.where((r) => r['status'] == 'pending').length;
-    final pendingSkip = _skipRequests.length;
+    final pendingSkip = _skipRequests.where((r) => r['status'] == 'pending').length;
 
     return Scaffold(
       appBar: AppBar(
@@ -187,7 +187,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
           _pickupLoading
               ? const Center(child: CircularProgressIndicator())
               : _pickupRequests.isEmpty
-                  ? _EmptyState(icon: Icons.inbox_rounded, label: s.noExtraRequests)
+                  ? _EmptyState(icon: Icons.inbox_rounded, label: 'No extra pickup requests\nin the last 7 days')
                   : RefreshIndicator(
                       onRefresh: _loadPickup,
                       child: ListView(
@@ -216,7 +216,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
               : _skipRequests.isEmpty
                   ? _EmptyState(
                       icon: Icons.check_circle_outline_rounded,
-                      label: 'No pending skip requests',
+                      label: 'No skip requests from\nhouseholds in your ward',
                     )
                   : RefreshIndicator(
                       onRefresh: _loadSkip,

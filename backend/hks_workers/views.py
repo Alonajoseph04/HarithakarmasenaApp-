@@ -199,9 +199,13 @@ class WorkerViewSet(viewsets.ModelViewSet):
             if recipient is None and hh.phone:
                 try:
                     recipient = HKSUser.objects.get(phone=hh.phone, role='household')
-                    # Auto-link for future
-                    hh.user = recipient
-                    hh.save(update_fields=['user'])
+                    # Auto-link for future (skip if user already linked to another household)
+                    if not hh.user:
+                        try:
+                            hh.user = recipient
+                            hh.save(update_fields=['user'])
+                        except Exception:
+                            pass  # IntegrityError — user already linked elsewhere
                 except HKSUser.DoesNotExist:
                     pass
 
@@ -224,14 +228,43 @@ class WorkerViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'], url_path='skip_requests')
     def skip_requests(self, request):
-        """Worker sees pending skip requests for their ward."""
-        try:
-            worker = Worker.objects.get(user=request.user)
-        except Worker.DoesNotExist:
-            return Response({'error': 'Worker profile not found'}, status=404)
-
+        """Worker sees skip requests for their ward.
+        Falls back to ?ward_id= query param if worker profile not linked."""
         from hks_collections.models import SkipRequest
         from hks_collections.serializers import SkipRequestSerializer
-        qs = SkipRequest.objects.filter(household__ward=worker.ward, status='pending').select_related('household')
+
+        ward = None
+
+        # Try to get ward from worker profile first
+        try:
+            worker = Worker.objects.get(user=request.user)
+            ward = worker.ward
+        except Worker.DoesNotExist:
+            pass
+
+        # Fall back to ward_id query param (for admins or unlinked workers)
+        if ward is None:
+            ward_id = request.query_params.get('ward_id')
+            if ward_id:
+                try:
+                    ward = Ward.objects.get(id=ward_id)
+                except Ward.DoesNotExist:
+                    return Response({'error': f'Ward {ward_id} not found'}, status=404)
+
+        if ward is None:
+            return Response(
+                {'error': 'Worker profile not linked to a ward. '
+                          'Please ask admin to assign you to a ward, '
+                          'or pass ?ward_id= as a query parameter.'},
+                status=400
+            )
+
+        # Return all skip requests for the ward (pending + acknowledged), last 30 days
+        from datetime import timedelta
+        thirty_days_ago = date.today() - timedelta(days=30)
+        qs = (SkipRequest.objects
+              .filter(household__ward=ward, date__gte=thirty_days_ago)
+              .select_related('household')
+              .order_by('status', '-date'))  # pending first, then by date
         return Response(SkipRequestSerializer(qs, many=True).data)
 

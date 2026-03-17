@@ -13,6 +13,13 @@ class HouseholdViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'phone', 'address']
     filterset_fields = ['ward', 'is_active']
 
+    def perform_destroy(self, instance):
+        """Also delete the linked HKSUser so they can't log in as a ghost account."""
+        user = instance.user
+        instance.delete()
+        if user is not None:
+            user.delete()
+
     @action(detail=False, methods=['get'])
     def by_qr(self, request):
         qr_code = request.query_params.get('qr_code')

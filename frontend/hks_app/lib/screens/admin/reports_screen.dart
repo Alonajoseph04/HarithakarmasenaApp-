@@ -24,6 +24,7 @@ class _ReportsScreenState extends State<ReportsScreen>
   int? _selectedWardId;
   int? _selectedWorkerId;
   String _statusFilter = 'all'; // 'all' | 'paid' | 'pending'
+  String? _selectedMonth; // 'yyyy-MM' e.g. '2026-03'
 
   // ── Worker Coverage tab state ──
   int? _covWardId;
@@ -66,6 +67,18 @@ class _ReportsScreenState extends State<ReportsScreen>
 
   double _toDouble(dynamic val) => double.tryParse(val?.toString() ?? '0') ?? 0.0;
 
+  /// Returns (yyyy-MM label, display label) for the last 12 months.
+  List<({String value, String label})> get _monthOptions {
+    final now = DateTime.now();
+    return List.generate(12, (i) {
+      final d = DateTime(now.year, now.month - i, 1);
+      return (
+        value: '${d.year}-${d.month.toString().padLeft(2, '0')}',
+        label: DateFormat('MMMM yyyy').format(d),
+      );
+    });
+  }
+
   List<dynamic> get _filtered {
     return _collections.where((c) {
       if (_selectedWardId != null) {
@@ -78,6 +91,11 @@ class _ReportsScreenState extends State<ReportsScreen>
       }
       if (_statusFilter != 'all') {
         if (c['payment_status'] != _statusFilter) return false;
+      }
+      if (_selectedMonth != null) {
+        // c['date'] is 'yyyy-MM-dd'
+        final dateStr = c['date']?.toString() ?? '';
+        if (!dateStr.startsWith(_selectedMonth!)) return false;
       }
       return true;
     }).toList();
@@ -157,7 +175,7 @@ class _ReportsScreenState extends State<ReportsScreen>
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          // Filters
+          // ── Row 1: Ward + Worker filters ──
           Row(children: [
             Expanded(child: DropdownButtonFormField<int?>(
               value: _selectedWardId,
@@ -181,7 +199,27 @@ class _ReportsScreenState extends State<ReportsScreen>
           ]),
           const SizedBox(height: 8),
 
-          // Status filter chips
+          // ── Row 2: Month filter ──
+          DropdownButtonFormField<String?>(
+            value: _selectedMonth,
+            decoration: const InputDecoration(
+              labelText: 'Month',
+              prefixIcon: Icon(Icons.calendar_month),
+              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              isDense: true,
+            ),
+            items: [
+              const DropdownMenuItem(value: null, child: Text('All Months')),
+              ..._monthOptions.map((m) => DropdownMenuItem<String?>(
+                value: m.value,
+                child: Text(m.label),
+              )),
+            ],
+            onChanged: (v) => setState(() => _selectedMonth = v),
+          ),
+          const SizedBox(height: 8),
+
+          // ── Row 3: Status + clear filters ──
           Row(children: [
             Text('Status:', style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
             const SizedBox(width: 8),
@@ -199,6 +237,20 @@ class _ReportsScreenState extends State<ReportsScreen>
                 ),
               ),
             )),
+            const Spacer(),
+            if (_selectedWardId != null || _selectedWorkerId != null ||
+                _selectedMonth != null || _statusFilter != 'all')
+              TextButton.icon(
+                icon: const Icon(Icons.clear, size: 14),
+                label: Text('Clear', style: GoogleFonts.poppins(fontSize: 12)),
+                onPressed: () => setState(() {
+                  _selectedWardId = null;
+                  _selectedWorkerId = null;
+                  _selectedMonth = null;
+                  _statusFilter = 'all';
+                }),
+                style: TextButton.styleFrom(foregroundColor: Colors.red, padding: EdgeInsets.zero),
+              ),
           ]),
           const SizedBox(height: 16),
 
@@ -225,7 +277,14 @@ class _ReportsScreenState extends State<ReportsScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Collection Records', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600)),
+              Expanded(
+                child: Text(
+                  _selectedMonth != null
+                      ? 'Collection Records — ${_monthOptions.firstWhere((m) => m.value == _selectedMonth).label}'
+                      : 'Collection Records',
+                  style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+              ),
               Text('${filtered.length} records', style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
             ],
           ),

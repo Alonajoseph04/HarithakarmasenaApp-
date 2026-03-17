@@ -224,18 +224,19 @@ class SkipRequestViewSet(viewsets.ModelViewSet):
             )
 
         skip = serializer.save(household=household)
-        from hks_workers.models import Worker
-        ward_workers = Worker.objects.filter(ward=household.ward, is_active=True)
-        for w in ward_workers:
-            _notify(
-                w.user,
-                'Collection Skip Request',
-                (f'{household.name} has requested to skip collection on {skip.date}. '
-                 f'Reason: {skip.reason or "No reason given"}.'),
-                message_ml=(f'{household.name} {skip.date}-ൽ ശേഖരണം ഒഴിവാക്കാൻ അഭ്യർത്ഥിച്ചു. '
-                            f'കാരണം: {skip.reason or "കാരണം നൽകിയിട്ടില്ല"}.'),
-                ntype='reminder'
-            )
+        if household.ward:  # Only notify workers if household has an assigned ward
+            from hks_workers.models import Worker
+            ward_workers = Worker.objects.filter(ward=household.ward, is_active=True)
+            for w in ward_workers:
+                _notify(
+                    w.user,
+                    'Collection Skip Request',
+                    (f'{household.name} has requested to skip collection on {skip.date}. '
+                     f'Reason: {skip.reason or "No reason given"}.'),
+                    message_ml=(f'{household.name} {skip.date}-ൽ ശേഖരണം ഒഴിവാക്കാൻ അഭ്യർത്ഥിച്ചു. '
+                                f'കാരണം: {skip.reason or "കാരണം നൽകിയിട്ടില്ല"}.'),
+                    ntype='reminder'
+                )
 
     @action(detail=True, methods=['patch'])
     def acknowledge(self, request, pk=None):
@@ -281,14 +282,20 @@ class ExtraPickupRequestViewSet(viewsets.ModelViewSet):
         elif user.role == 'worker':
             try:
                 from hks_workers.models import Worker
+                from datetime import timedelta
                 worker = Worker.objects.get(user=user)
+                # Show last 7 days so requests don't disappear at midnight
+                seven_days_ago = date.today() - timedelta(days=7)
                 return ExtraPickupRequest.objects.filter(
-                    household__ward=worker.ward, date=date.today()
+                    household__ward=worker.ward,
+                    date__gte=seven_days_ago
                 )
             except Exception:
                 return ExtraPickupRequest.objects.none()
-        # admin sees all today's
-        return ExtraPickupRequest.objects.filter(date=date.today())
+        # Admin sees last 30 days
+        from datetime import timedelta
+        thirty_days_ago = date.today() - timedelta(days=30)
+        return ExtraPickupRequest.objects.filter(date__gte=thirty_days_ago)
 
     def perform_create(self, serializer):
         from hks_households.models import Household
@@ -319,22 +326,23 @@ class ExtraPickupRequestViewSet(viewsets.ModelViewSet):
                 'Please contact admin to link your account.'
             )
 
-        req = serializer.save(household=household, date=date.today())
+        req = serializer.save(household=household, date=timezone.localdate())
 
-        # Notify ward workers
-        from hks_workers.models import Worker
-        ward_workers = Worker.objects.filter(ward=household.ward, is_active=True)
-        for w in ward_workers:
-            _notify(
-                w.user,
-                'Extra Pickup Request',
-                (f'{household.name} is requesting extra pickup of '
-                 f'{req.get_waste_type_display()} today. Notes: {req.notes or "None"}'),
-                message_ml=(f'{household.name} ഇന്ന് '
-                            f'{req.get_waste_type_display()} കൂടുതൽ ശേഖരിക്കാൻ അഭ്യർത്ഥിക്കുന്നു. '
-                            f'കുറിപ്പ്: {req.notes or "ഇല്ല"}'),
-                ntype='pickup'
-            )
+        # Notify ward workers — only if household has an assigned ward
+        if household.ward:
+            from hks_workers.models import Worker
+            ward_workers = Worker.objects.filter(ward=household.ward, is_active=True)
+            for w in ward_workers:
+                _notify(
+                    w.user,
+                    'Extra Pickup Request',
+                    (f'{household.name} is requesting extra pickup of '
+                     f'{req.get_waste_type_display()} today. Notes: {req.notes or "None"}'),
+                    message_ml=(f'{household.name} ഇന്ന് '
+                                f'{req.get_waste_type_display()} കൂടുതൽ ശേഖരിക്കാൻ അഭ്യർത്ഥിക്കുന്നു. '
+                                f'കുറിപ്പ്: {req.notes or "ഇല്ല"}'),
+                    ntype='pickup'
+                )
 
     @action(detail=True, methods=['patch'])
     def approve(self, request, pk=None):
