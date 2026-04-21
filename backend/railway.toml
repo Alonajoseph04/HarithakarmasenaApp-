@@ -3,6 +3,4 @@ builder = "NIXPACKS"
 
 [deploy]
 startCommand = "python manage.py migrate && gunicorn hks_backend.wsgi --bind 0.0.0.0:$PORT"
-healthcheckPath = "/api/wards/"
-healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
