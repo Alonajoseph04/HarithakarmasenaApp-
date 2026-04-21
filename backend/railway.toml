@@ -4,3 +4,6 @@ builder = "NIXPACKS"
 [deploy]
 startCommand = "python manage.py migrate && gunicorn hks_backend.wsgi --bind 0.0.0.0:$PORT"
 restartPolicyType = "ON_FAILURE"
+
+[[services]]
+port = 8000
