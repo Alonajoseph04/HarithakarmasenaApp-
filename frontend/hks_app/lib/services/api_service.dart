@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+import 'token_storage.dart';
+
 class ApiService {
-  static const String baseUrl = 'http://127.0.0.1:8000/api';
-  late final Dio _dio;
+  static const String baseUrl = 'http://172.20.146.22:8000/api';
+  late Dio _dio;
 
   ApiService() {
     _dio = Dio(BaseOptions(
@@ -15,8 +18,7 @@ class ApiService {
 
     _dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) async {
-        final prefs = await SharedPreferences.getInstance();
-        final token = prefs.getString('access_token');
+        final token = await TokenStorage.getAccessToken();
         if (token != null) {
           options.headers['Authorization'] = 'Bearer $token';
         }

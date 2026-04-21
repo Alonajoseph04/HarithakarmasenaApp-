@@ -1,8 +1,12 @@
+import 'dart:ui' as ui;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../services/api_service.dart';
 import '../../theme/app_theme.dart';
+import '../../utils/web_download.dart';
 
 class HouseholdManagementScreen extends StatefulWidget {
   const HouseholdManagementScreen({super.key});
@@ -37,8 +41,10 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
         (h) => h['id'] == household['id'], orElse: () => household);
       if (mounted) _showQR(refreshed);
     } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to generate QR: $e'), backgroundColor: Colors.red));
+      }
     }
   }
 
@@ -104,7 +110,7 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
               ),
               const SizedBox(height: 10),
               DropdownButtonFormField<int>(
-                value: wardId,
+                initialValue: wardId,
                 hint: const Text('Select Ward'),
                 decoration: const InputDecoration(
                   labelText: 'Assign Ward',
@@ -239,6 +245,91 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
     );
   }
 
+  /// Renders the QR code string to a PNG [Uint8List] in memory.
+  Future<ui.Image> _qrToImage(String qrCode, {double size = 300}) async {
+    final painter = QrPainter(
+      data: qrCode,
+      version: QrVersions.auto,
+      gapless: true,
+      color: const Color(0xFF000000),
+    );
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder, Rect.fromLTWH(0, 0, size, size));
+    // White background
+    canvas.drawRect(
+        Rect.fromLTWH(0, 0, size, size), Paint()..color = const Color(0xFFFFFFFF));
+    painter.paint(canvas, Size(size, size));
+    final picture = recorder.endRecording();
+    return picture.toImage(size.toInt(), size.toInt());
+  }
+
+  Future<void> _shareQr(Map<String, dynamic> household) async {
+    final qrCode = (household['qr_code'] ?? '').toString().trim();
+    if (qrCode.isEmpty) return;
+    try {
+      final image = await _qrToImage(qrCode, size: 400);
+      final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (byteData == null) return;
+      final bytes = byteData.buffer.asUint8List();
+      if (kIsWeb) {
+        webDownloadBytes(bytes, 'QR_${household['name'].toString().replaceAll(' ', '_')}.png');
+      } else {
+        final name = household['name'].toString().replaceAll(' ', '_');
+        await Share.shareXFiles(
+          [XFile.fromData(bytes, name: 'qr_$name.png', mimeType: 'image/png')],
+          subject: 'QR Code – ${household['name']}',
+          text: 'QR code for household: ${household['name']}',
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red));
+      }
+    }
+  }
+
+
+  Future<void> _downloadQr(Map<String, dynamic> household) async {
+    final qrCode = (household['qr_code'] ?? '').toString().trim();
+    if (qrCode.isEmpty) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('No QR code yet — open View QR Code to generate one first.'),
+          backgroundColor: Colors.orange,
+        ));
+      }
+      return;
+    }
+    try {
+      final image = await _qrToImage(qrCode, size: 400);
+      final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (byteData == null) return;
+      final bytes = byteData.buffer.asUint8List();
+      if (kIsWeb) {
+        webDownloadBytes(bytes, 'QR_${household['name'].toString().replaceAll(' ', '_')}.png');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('✓ QR code downloaded'),
+            backgroundColor: Colors.green,
+          ));
+        }
+      } else {
+        final name = household['name'].toString().replaceAll(' ', '_');
+        await Share.shareXFiles(
+          [XFile.fromData(bytes, name: 'QR_$name.png', mimeType: 'image/png')],
+          subject: 'QR Code – ${household['name']}',
+          text: 'QR code for household: ${household['name']}',
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error downloading: $e'), backgroundColor: Colors.red));
+      }
+    }
+  }
+
   void _showQR(Map<String, dynamic> household) {
     final qrCode = (household['qr_code'] ?? '').toString().trim();
     showDialog(
@@ -263,27 +354,56 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
               ),
             ] else ...[
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 10)],
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.12), blurRadius: 16, spreadRadius: 2)],
                 ),
-                child: QrImageView(data: qrCode, version: QrVersions.auto, size: 200),
+                child: QrImageView(data: qrCode, version: QrVersions.auto, size: 240),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                 decoration: BoxDecoration(
                   color: AppTheme.background,
                   borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: AppTheme.primary.withValues(alpha: 0.25)),
                 ),
-                child: SelectableText(qrCode,
-                    style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600)),
+                child: SelectableText(
+                  qrCode,
+                  style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600),
+                  textAlign: TextAlign.center,
+                ),
               ),
               const SizedBox(height: 4),
               Text('Scan this QR to record collection',
                   style: GoogleFonts.poppins(fontSize: 12, color: AppTheme.textLight)),
+              const SizedBox(height: 14),
+              // ── Download / Share buttons ──────────────────────────
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.file_download),
+                  label: const Text('Download'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppTheme.primary,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(dialogCtx);
+                    _downloadQr(household);
+                  },
+                ),
+                const SizedBox(width: 10),
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.share),
+                  label: const Text('Share'),
+                  onPressed: () {
+                    Navigator.pop(dialogCtx);
+                    _shareQr(household);
+                  },
+                ),
+              ]),
             ],
           ],
         ),
@@ -366,19 +486,14 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
                               ],
                             ),
                             isThreeLine: true,
-                            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-                              IconButton(
-                                icon: const Icon(Icons.qr_code, color: AppTheme.primary),
-                                onPressed: () => _showQR(h),
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.edit, color: AppTheme.primary),
-                                onPressed: () => _showAddDialog(h),
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.delete, color: Colors.red),
-                                onPressed: () async {
-                                  final confirm = await showDialog<bool>(
+                            trailing: PopupMenuButton<String>(
+                              icon: const Icon(Icons.more_vert),
+                              onSelected: (value) {
+                                if (value == 'qr') _showQR(h);
+                                if (value == 'download_qr') _downloadQr(h);
+                                if (value == 'edit') _showAddDialog(h);
+                                if (value == 'delete') {
+                                  showDialog<bool>(
                                     context: context,
                                     builder: (c) => AlertDialog(
                                       title: const Text('Delete Household?'),
@@ -395,14 +510,49 @@ class _HouseholdManagementScreenState extends State<HouseholdManagementScreen> {
                                             child: const Text('Delete')),
                                       ],
                                     ),
-                                  );
-                                  if (confirm == true) {
-                                    await _api.deleteHousehold(h['id'] as int);
-                                    _load();
-                                  }
-                                },
-                              ),
-                            ]),
+                                  ).then((confirm) async {
+                                    if (confirm == true) {
+                                      await _api.deleteHousehold(h['id'] as int);
+                                      _load();
+                                    }
+                                  });
+                                }
+                              },
+                              itemBuilder: (ctx) => [
+                                const PopupMenuItem(
+                                  value: 'qr',
+                                  child: ListTile(
+                                    leading: Icon(Icons.qr_code, color: AppTheme.primary),
+                                    title: Text('View QR Code'),
+                                    contentPadding: EdgeInsets.zero,
+                                  ),
+                                ),
+                                const PopupMenuItem(
+                                  value: 'download_qr',
+                                  child: ListTile(
+                                    leading: Icon(Icons.file_download, color: AppTheme.primary),
+                                    title: Text('Download QR Code'),
+                                    contentPadding: EdgeInsets.zero,
+                                  ),
+                                ),
+                                const PopupMenuItem(
+                                  value: 'edit',
+                                  child: ListTile(
+                                    leading: Icon(Icons.edit, color: AppTheme.primary),
+                                    title: Text('Edit'),
+                                    contentPadding: EdgeInsets.zero,
+                                  ),
+                                ),
+                                const PopupMenuItem(
+                                  value: 'delete',
+                                  child: ListTile(
+                                    leading: Icon(Icons.delete, color: Colors.red),
+                                    title: Text('Delete', style: TextStyle(color: Colors.red)),
+                                    contentPadding: EdgeInsets.zero,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },

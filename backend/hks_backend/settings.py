@@ -4,17 +4,20 @@ Django settings for HKS Waste Management System
 from pathlib import Path
 from datetime import timedelta
 import os
+import dj_database_url
+
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    _env_path = Path(__file__).resolve().parent.parent / '.env'
+    load_dotenv(dotenv_path=_env_path, override=True)
 except Exception:
     pass
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'hks-django-secret-key-waste-management-2024'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'hks-django-secret-key-waste-management-2024')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # serve static files in production
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,12 +73,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hks_backend.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Database — uses DATABASE_URL env var on Railway (PostgreSQL), falls back to SQLite locally
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_USER_MODEL = 'hks_users.HKSUser'
 
@@ -87,13 +98,16 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS
+# CORS — allow all origins so the Flutter app can connect from anywhere
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
