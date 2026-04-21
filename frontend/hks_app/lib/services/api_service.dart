@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'token_storage.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://172.20.146.22:8000/api';
+  static const String baseUrl = 'https://harithakarmasenaapp-production.up.railway.app/api';
   late Dio _dio;
 
   ApiService() {
