@@ -38,9 +38,9 @@ class _HouseholdLoginScreenState extends State<HouseholdLoginScreen> {
               padding: const EdgeInsets.all(24),
               child: Column(
                 children: [
-                  Align(
+                  const Align(
                     alignment: Alignment.topRight,
-                    child: const LangToggleButton(),
+                    child: LangToggleButton(),
                   ),
                   const SizedBox(height: 8),
                   const Icon(Icons.home, size: 70, color: Colors.white),
@@ -55,7 +55,7 @@ class _HouseholdLoginScreenState extends State<HouseholdLoginScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 20, offset: const Offset(0, 8))],
+                      boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 8))],
                     ),
                     child: Column(
                       children: [

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../services/api_service.dart';
@@ -13,9 +14,21 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   final _api = ApiService();
   List<dynamic> _notifications = [];
   bool _loading = true;
+  Timer? _pollTimer;
 
   @override
-  void initState() { super.initState(); _load(); }
+  void initState() {
+    super.initState();
+    _load();
+    // Auto-refresh every 15 seconds for real-time broadcast updates
+    _pollTimer = Timer.periodic(const Duration(seconds: 15), (_) => _silentRefresh());
+  }
+
+  @override
+  void dispose() {
+    _pollTimer?.cancel();
+    super.dispose();
+  }
 
   Future<void> _load() async {
     try {
@@ -33,6 +46,14 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         );
       }
     }
+  }
+
+  /// Silent refresh — updates the list without showing a loading spinner
+  Future<void> _silentRefresh() async {
+    try {
+      final n = await _api.getNotifications();
+      if (mounted) setState(() => _notifications = n);
+    } catch (_) {}
   }
 
   IconData _iconForType(String type) {

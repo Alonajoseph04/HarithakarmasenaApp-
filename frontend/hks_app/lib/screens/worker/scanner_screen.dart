@@ -46,7 +46,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Household not found for this QR code'),
             backgroundColor: Colors.red,
           ),
@@ -141,7 +141,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(s.scanQr),
-        actions: [const LangToggleButton()],
+        actions: const [LangToggleButton()],
       ),
       body: Stack(children: [
         MobileScanner(controller: _controller!, onDetect: _onDetect),

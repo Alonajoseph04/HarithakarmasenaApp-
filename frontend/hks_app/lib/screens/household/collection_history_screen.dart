@@ -51,7 +51,7 @@ class _CollectionHistoryScreenState extends State<CollectionHistoryScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(s.collectionHistory),
-        actions: [const LangToggleButton(), const ThemeToggleButton(), const SizedBox(width: 8)],
+        actions: const [LangToggleButton(), ThemeToggleButton(), SizedBox(width: 8)],
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())

@@ -27,9 +27,9 @@ class LandingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Language toggle at top-right
-                Align(
+                const Align(
                   alignment: Alignment.topRight,
-                  child: const LangToggleButton(),
+                  child: LangToggleButton(),
                 ),
                 const SizedBox(height: 8),
                 // Logo

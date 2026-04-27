@@ -20,6 +20,9 @@ dependencies:
   # QR Code
   qr_flutter: ^4.1.0
   mobile_scanner: ^5.2.3
+  # File & Sharing
+  share_plus: ^10.0.0
+  path_provider: ^2.1.2
   # Notifications
   flutter_local_notifications: ^17.2.2
   # UI

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/api_service.dart';
+import '../services/token_storage.dart';
 
 class AuthProvider extends ChangeNotifier {
   final ApiService _api = ApiService();
@@ -18,15 +20,13 @@ class AuthProvider extends ChangeNotifier {
   bool get isInitialized => _isInitialized;
 
   Future<bool> loadFromStorage() async {
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('access_token');
+    final token = await TokenStorage.getAccessToken();
     if (token != null) {
       try {
         final userData = await _api.getMe();
         _user = userData;
       } catch (_) {
-        await prefs.remove('access_token');
-        await prefs.remove('refresh_token');
+        await TokenStorage.removeTokens();
       }
     }
     _isInitialized = true;
@@ -40,11 +40,10 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
     try {
       final data = await _api.login(username, password);
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('access_token', data['tokens']['access']);
-      if (data['tokens']['refresh'] != null) {
-        await prefs.setString('refresh_token', data['tokens']['refresh']);
-      }
+      await TokenStorage.saveTokens(
+        access: data['tokens']['access'],
+        refresh: data['tokens']['refresh'],
+      );
       _user = data['user'];
       _isLoading = false;
       notifyListeners();
@@ -87,11 +86,10 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
     try {
       final data = await _api.verifyOtp(phone, otp);
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('access_token', data['tokens']['access']);
-      if (data['tokens']['refresh'] != null) {
-        await prefs.setString('refresh_token', data['tokens']['refresh']);
-      }
+      await TokenStorage.saveTokens(
+        access: data['tokens']['access'],
+        refresh: data['tokens']['refresh'],
+      );
       _user = data['user'];
       _isLoading = false;
       notifyListeners();
@@ -110,9 +108,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<void> logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('access_token');
-    await prefs.remove('refresh_token');
+    await TokenStorage.removeTokens();
     _user = null;
     notifyListeners();
   }

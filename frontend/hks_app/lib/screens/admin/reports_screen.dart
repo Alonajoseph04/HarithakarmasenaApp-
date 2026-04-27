@@ -120,8 +120,10 @@ class _ReportsScreenState extends State<ReportsScreen>
       setState(() { _coverageData = data; _covLoading = false; });
     } catch (e) {
       setState(() => _covLoading = false);
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red));
+      }
     }
   }
 
@@ -178,7 +180,7 @@ class _ReportsScreenState extends State<ReportsScreen>
           // ── Row 1: Ward + Worker filters ──
           Row(children: [
             Expanded(child: DropdownButtonFormField<int?>(
-              value: _selectedWardId,
+              initialValue: _selectedWardId,
               decoration: const InputDecoration(labelText: 'Ward', contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10), isDense: true),
               items: [
                 const DropdownMenuItem(value: null, child: Text('All Wards')),
@@ -188,7 +190,7 @@ class _ReportsScreenState extends State<ReportsScreen>
             )),
             const SizedBox(width: 8),
             Expanded(child: DropdownButtonFormField<int?>(
-              value: _selectedWorkerId,
+              initialValue: _selectedWorkerId,
               decoration: const InputDecoration(labelText: 'Worker', contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10), isDense: true),
               items: [
                 const DropdownMenuItem(value: null, child: Text('All Workers')),
@@ -201,7 +203,7 @@ class _ReportsScreenState extends State<ReportsScreen>
 
           // ── Row 2: Month filter ──
           DropdownButtonFormField<String?>(
-            value: _selectedMonth,
+            initialValue: _selectedMonth,
             decoration: const InputDecoration(
               labelText: 'Month',
               prefixIcon: Icon(Icons.calendar_month),
@@ -319,7 +321,7 @@ class _ReportsScreenState extends State<ReportsScreen>
         Text('Filter Houses by Worker', style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w600)),
         const SizedBox(height: 10),
         DropdownButtonFormField<int?>(
-          value: _covWardId,
+          initialValue: _covWardId,
           decoration: const InputDecoration(labelText: 'Select Ward *', prefixIcon: Icon(Icons.location_city), isDense: true),
           items: [
             const DropdownMenuItem(value: null, child: Text('Choose Ward')),
@@ -329,7 +331,7 @@ class _ReportsScreenState extends State<ReportsScreen>
         ),
         const SizedBox(height: 10),
         DropdownButtonFormField<int?>(
-          value: _covWorkerId,
+          initialValue: _covWorkerId,
           decoration: const InputDecoration(labelText: 'Select Worker (optional)', prefixIcon: Icon(Icons.person), isDense: true),
           items: [
             const DropdownMenuItem(value: null, child: Text('All Workers')),
@@ -524,7 +526,7 @@ class _CollectionCard extends StatelessWidget {
           Wrap(spacing: 6, runSpacing: 4, children: [
             _Tag(c['date']?.toString() ?? '-', Icons.calendar_today, Colors.blue),
             _Tag(
-              '${(c['waste_type'] ?? '').toString().toUpperCase()}',
+              (c['waste_type'] ?? '').toString().toUpperCase(),
               Icons.recycling,
               AppTheme.primary,
             ),

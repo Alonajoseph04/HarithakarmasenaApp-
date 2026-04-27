@@ -83,7 +83,7 @@ class _ExtraPickupScreenState extends State<ExtraPickupScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(s.requestExtraPickup),
-        actions: [const LangToggleButton(), const ThemeToggleButton(), const SizedBox(width: 8)],
+        actions: const [LangToggleButton(), ThemeToggleButton(), SizedBox(width: 8)],
       ),
       body: ListView(
         padding: const EdgeInsets.all(18),

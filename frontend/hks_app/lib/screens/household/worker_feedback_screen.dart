@@ -35,7 +35,7 @@ class _WorkerFeedbackScreenState extends State<WorkerFeedbackScreen> {
   Future<void> _submit() async {
     if (!_canSubmit) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.read<LanguageProvider>().strings.feedbackOverall + ' required')),
+        SnackBar(content: Text('${context.read<LanguageProvider>().strings.feedbackOverall} required')),
       );
       return;
     }
@@ -71,7 +71,7 @@ class _WorkerFeedbackScreenState extends State<WorkerFeedbackScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(s.rateWorker),
-        actions: [const LangToggleButton(), const ThemeToggleButton(), const SizedBox(width: 8)],
+        actions: const [LangToggleButton(), ThemeToggleButton(), SizedBox(width: 8)],
       ),
       body: _submitted
           ? _ThankYou(workerName: workerName, s: s)

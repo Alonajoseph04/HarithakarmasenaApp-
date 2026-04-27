@@ -67,7 +67,7 @@ class _WorkerDashboardScreenState extends State<WorkerDashboardScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text(s.performance),
-        actions: [const LangToggleButton(), const ThemeToggleButton(), const SizedBox(width: 8)],
+        actions: const [LangToggleButton(), ThemeToggleButton(), SizedBox(width: 8)],
         bottom: TabBar(
           controller: _tabCtrl,
           indicatorColor: Colors.white,

@@ -76,7 +76,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   const SizedBox(height: 20),
                   // Monthly bar chart
                   if (_summary?['monthly_data'] != null) ...[
-                    _SectionHeader('Monthly Collections (last 6 months)'),
+                    const _SectionHeader('Monthly Collections (last 6 months)'),
                     const SizedBox(height: 12),
                     Container(
                       height: 220,
@@ -90,7 +90,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     ),
                     const SizedBox(height: 20),
                   ],
-                  _SectionHeader('Quick Actions'),
+                  const _SectionHeader('Quick Actions'),
                   const SizedBox(height: 12),
                   Row(children: [
                     Expanded(child: _QuickAction(icon: Icons.person_add, label: 'Add Worker',
@@ -222,7 +222,7 @@ class _MonthlyBarChart extends StatelessWidget {
               return const SizedBox();
             },
           )),
-          leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
           topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
           rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
         ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -15,11 +16,20 @@ class _WorkerShellState extends State<WorkerShell> {
   int _idx = 0;
   int _unreadCount = 0;
   final _api = ApiService();
+  Timer? _pollTimer;
 
   @override
   void initState() {
     super.initState();
     _fetchUnread();
+    // Poll every 15 seconds for new notifications
+    _pollTimer = Timer.periodic(const Duration(seconds: 15), (_) => _fetchUnread());
+  }
+
+  @override
+  void dispose() {
+    _pollTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _fetchUnread() async {

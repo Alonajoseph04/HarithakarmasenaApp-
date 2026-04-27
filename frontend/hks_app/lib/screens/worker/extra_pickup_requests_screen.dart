@@ -187,7 +187,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
           _pickupLoading
               ? const Center(child: CircularProgressIndicator())
               : _pickupRequests.isEmpty
-                  ? _EmptyState(icon: Icons.inbox_rounded, label: 'No extra pickup requests\nin the last 7 days')
+                  ? const _EmptyState(icon: Icons.inbox_rounded, label: 'No extra pickup requests\nin the last 7 days')
                   : RefreshIndicator(
                       onRefresh: _loadPickup,
                       child: ListView(
@@ -201,7 +201,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
                                     onReject: () => _reject(r['id'] as int),
                                   )),
                           if (_pickupRequests.any((r) => r['status'] != 'pending')) ...[
-                            _SectionHeader(label: "Today's Reviewed", color: Colors.blue),
+                            const _SectionHeader(label: "Today's Reviewed", color: Colors.blue),
                             ..._pickupRequests
                                 .where((r) => r['status'] != 'pending')
                                 .map((r) => _RequestCard(req: r, s: s)),
@@ -214,7 +214,7 @@ class _ExtraPickupRequestsScreenState extends State<ExtraPickupRequestsScreen>
           _skipLoading
               ? const Center(child: CircularProgressIndicator())
               : _skipRequests.isEmpty
-                  ? _EmptyState(
+                  ? const _EmptyState(
                       icon: Icons.check_circle_outline_rounded,
                       label: 'No skip requests from\nhouseholds in your ward',
                     )

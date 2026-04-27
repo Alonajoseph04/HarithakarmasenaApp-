@@ -35,9 +35,9 @@ class _WorkerLoginScreenState extends State<WorkerLoginScreen> {
               padding: const EdgeInsets.all(24),
               child: Column(
                 children: [
-                  Align(
+                  const Align(
                     alignment: Alignment.topRight,
-                    child: const LangToggleButton(),
+                    child: LangToggleButton(),
                   ),
                   const SizedBox(height: 8),
                   const Icon(Icons.work_outline, size: 70, color: Colors.white),
@@ -49,7 +49,7 @@ class _WorkerLoginScreenState extends State<WorkerLoginScreen> {
                     padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
                       color: Colors.white, borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 20, offset: const Offset(0, 8))],
+                      boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 8))],
                     ),
                     child: Form(
                       key: _formKey,
@@ -83,8 +83,9 @@ class _WorkerLoginScreenState extends State<WorkerLoginScreen> {
                             if (_formKey.currentState!.validate()) {
                               final ok = await auth.loginWorkerOrAdmin(_idCtrl.text, _passCtrl.text);
                               if (ok && mounted) {
-                                if (auth.role == 'worker') context.go('/worker');
-                                else if (auth.role == 'admin') context.go('/admin');
+                                if (auth.role == 'worker') {
+                                  context.go('/worker');
+                                } else if (auth.role == 'admin') context.go('/admin');
                               }
                             }
                           },

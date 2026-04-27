@@ -38,9 +38,9 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
               child: Column(
                 children: [
                   // Language toggle
-                  Align(
+                  const Align(
                     alignment: Alignment.topRight,
-                    child: const LangToggleButton(),
+                    child: LangToggleButton(),
                   ),
                   const SizedBox(height: 8),
                   const Icon(Icons.admin_panel_settings, size: 70, color: Colors.white),
@@ -55,7 +55,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 20, offset: const Offset(0, 8))],
+                      boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 8))],
                     ),
                     child: Form(
                       key: _formKey,

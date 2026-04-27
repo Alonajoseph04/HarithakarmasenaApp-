@@ -32,7 +32,7 @@ class _HouseholdPaymentScreenState extends State<HouseholdPaymentScreen> with Si
   }
 
   String _buildUpiLink(String upiId, double amount) {
-    final enc = Uri.encodeComponent;
+    const enc = Uri.encodeComponent;
     return 'upi://pay?pa=${enc(upiId)}&pn=${enc('HKS Collection')}&am=${amount.toStringAsFixed(2)}&cu=INR&tn=${enc('Waste Collection Payment')}';
   }
 
@@ -140,7 +140,7 @@ class _HouseholdPaymentScreenState extends State<HouseholdPaymentScreen> with Si
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 12)],
+                boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 12)],
               ),
               child: QrImageView(data: _upiDeepLink!, size: 220, version: QrVersions.auto),
             ),

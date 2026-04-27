@@ -65,7 +65,7 @@ class _WorkerManagementScreenState extends State<WorkerManagementScreen> {
               ),
               if (existing == null) const SizedBox(height: 10),
               DropdownButtonFormField<int>(
-                value: wardId,
+                initialValue: wardId,
                 hint: const Text('Select Ward'),
                 items: _wards.map((w) => DropdownMenuItem<int>(
                   value: w['id'] as int,

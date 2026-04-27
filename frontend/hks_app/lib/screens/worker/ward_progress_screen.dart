@@ -117,10 +117,10 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
       context: context,
       builder: (dialogCtx) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Row(children: [
-          const Icon(Icons.campaign, color: Colors.orange),
-          const SizedBox(width: 8),
-          const Text('Notify Households'),
+        title: const Row(children: [
+          Icon(Icons.campaign, color: Colors.orange),
+          SizedBox(width: 8),
+          Text('Notify Households'),
         ]),
         content: Text(
           'Send a collection notification to all households in $wardName for $dateStr?',
@@ -309,7 +309,7 @@ class _WardProgressScreenState extends State<WardProgressScreen> {
                     )
                   else
                   DropdownButtonFormField<int>(
-                    value: _selectedWardId,
+                    initialValue: _selectedWardId,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.location_city),
                       hintText: s.chooseWard,
