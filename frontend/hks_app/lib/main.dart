@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/language_provider.dart';
@@ -21,13 +22,15 @@ class HKSApp extends StatefulWidget {
 class _HKSAppState extends State<HKSApp> {
   late final AuthProvider _auth;
   late final LanguageProvider _lang;
+  late final GoRouter _router; // ← created ONCE, not on every build
 
   @override
   void initState() {
     super.initState();
-    _auth = AuthProvider();
-    _lang = globalLang;
-    _auth.loadFromStorage();
+    _auth   = AuthProvider();
+    _lang   = globalLang;
+    _router = buildRouter(_auth); // ← build router here, once
+    _auth.loadFromStorage();      // ← async init after router exists
   }
 
   @override
@@ -45,7 +48,7 @@ class _HKSAppState extends State<HKSApp> {
           theme: AppTheme.theme,
           darkTheme: AppTheme.darkTheme,
           themeMode: globalTheme.mode,
-          routerConfig: buildRouter(_auth),
+          routerConfig: _router, // ← use the stored router
           debugShowCheckedModeBanner: false,
         ),
       ),
