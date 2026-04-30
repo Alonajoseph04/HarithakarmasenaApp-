@@ -1,0 +1,3749 @@
+[
+  {
+    "model": "hks_users.hksuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$kEmISnl7q14z6ETyZN1Xmm$im8bfdrIxVacNk3LOsnlKYqxdUcImwB9BARRBSCmKcE=",
+      "last_login": "2026-04-01T08:16:17.005Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "HKS",
+      "last_name": "Admin",
+      "email": "admin@hks.local",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-03-06T16:58:34.555Z",
+      "role": "admin",
+      "phone": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$QGJc3ZBPN6Hao1aeUk43pr$GKU6AQMmqS4yYmdg4EjmdFE5sKjDASXJwuWgz6C7Pq8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "W001",
+      "first_name": "Saniya",
+      "last_name": "Ashaworker",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-11T08:32:16Z",
+      "role": "worker",
+      "phone": "9496240198",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 21,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h001",
+      "first_name": "Thankappan",
+      "last_name": "thattumpurath",
+      "email": "thankuth1323@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-11T09:14:18Z",
+      "role": "household",
+      "phone": "9562985392",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 22,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h002",
+      "first_name": "gangadaran",
+      "last_name": "chalakodiyil",
+      "email": "ganghadara123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-11T09:15:38Z",
+      "role": "household",
+      "phone": "9895847318",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 23,
+    "fields": {
+      "password": "house2123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h003",
+      "first_name": "Aneesh",
+      "last_name": "K A",
+      "email": "aneeshka2322@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-11T09:17:37Z",
+      "role": "household",
+      "phone": "9947632291",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 24,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h004",
+      "first_name": "Thankan",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-16T17:02:54Z",
+      "role": "household",
+      "phone": "9544327262",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 25,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h005",
+      "first_name": "Daison",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-16T17:04:31Z",
+      "role": "household",
+      "phone": "9447481470",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 26,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h006",
+      "first_name": "Thomas",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-16T17:05:29Z",
+      "role": "household",
+      "phone": "9747637950",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 27,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h007",
+      "first_name": "Kannan",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-16T17:06:24Z",
+      "role": "household",
+      "phone": "9447743238",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 48,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h026",
+      "first_name": "Thomas",
+      "last_name": "Pazhuparambil",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:45:03Z",
+      "role": "household",
+      "phone": "9495866629",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 49,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$EODJLjqU5fGPPOiXNDLp4G$wJiTmNtdwZwVKhmoO/6avZiZqgKjP1nZfbLG8b2P4SQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h027",
+      "first_name": "Augasthy",
+      "last_name": "Injanakunnel",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:48:25Z",
+      "role": "household",
+      "phone": "9447481503",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 50,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$s46KsI54jfsn7g0XFJSspI$9bE2bvI97LbbGqmrFI0lbDy8YkyrV2UMJL52zfiTPd8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h028",
+      "first_name": "Bindu",
+      "last_name": "Jacob",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:51:40.681Z",
+      "role": "household",
+      "phone": "9847901855",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 51,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Fwaz6Wi70wJZmaELJS6gvj$0Wo4sQJ4zlFUZane1Q94ZmveV+Bd8h7GiuXe+XbM/8s=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h029",
+      "first_name": "Augasthy",
+      "last_name": "vennayipilli",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:54:02.264Z",
+      "role": "household",
+      "phone": "9847205076",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 52,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$oLjdzSt3ClDMpXnVo6ZGpD$oyTnkKzq0kLwFlLTZ4zW0uLZTtBvHq/64Qsom1dUaIc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h030",
+      "first_name": "Jose",
+      "last_name": "Antony",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:56:06.084Z",
+      "role": "household",
+      "phone": "9495679422",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 53,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$uhF9K3LrOWtpxNlUnthaVD$jvymsgwIvWRhTUiYlHfO8YZzwR+vOj8z/yJUOcu/6mk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h031",
+      "first_name": "Jomy",
+      "last_name": "Jose",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T17:58:20.651Z",
+      "role": "household",
+      "phone": "8547693545",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 54,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$wRQzse90sl2EQSKasf6smX$VlZeD3ACFig1YUPQl7JjyX6N/gu5oAcTsuh7grG3gUY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h032",
+      "first_name": "John",
+      "last_name": "Kareemplakal",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:00:20.734Z",
+      "role": "household",
+      "phone": "8590169227",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 55,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$iGKWCPSS6fm2XK7B3OqUEh$+tHXSrA35AKdNH3aIHjHznuiG2av/zQGebhB5bZAjyY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h033",
+      "first_name": "Joseph",
+      "last_name": "Pandiyammakal",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:01:58.870Z",
+      "role": "household",
+      "phone": "8547693231",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 56,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$RtGBMnpTxHrOBFbuYn4jGD$1Zf7e2BSozPcknGZQEM6+3FrKOgSBF0il6/oSH//zvM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h034",
+      "first_name": "Francis",
+      "last_name": "Pandiyammakal",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:03:36.389Z",
+      "role": "household",
+      "phone": "9446989552",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 57,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h035",
+      "first_name": "Ammini",
+      "last_name": "Parakal",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:05:11Z",
+      "role": "household",
+      "phone": "9496706004",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 58,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$aIrgz1irT8SJWnPmfwyMQq$spJKoScBhQPKsMBziQCWF6d37jqUBSLy4htvFtL5zcg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h036",
+      "first_name": "Bindu",
+      "last_name": "Chakalakal",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:09:39.692Z",
+      "role": "household",
+      "phone": "9745659522",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 59,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$EjDYzOdNWUxO8gH0zRxbpW$0w7KpVNiZLhvHpoxw77se+QzW86mR2Xg6gRm1yJ25BU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h037",
+      "first_name": "Jinu",
+      "last_name": "George",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:11:33.824Z",
+      "role": "household",
+      "phone": "9656182730",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 60,
+    "fields": {
+      "password": "house@123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h038",
+      "first_name": "Francis",
+      "last_name": "Poovelil",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:13:29Z",
+      "role": "household",
+      "phone": "9495150609",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 61,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$tAoFAqQaELKJbAnATiPa4R$BnLn1z4HL+x4TXRqd0qY8NMo93VBRhVo7RS2bjSGbb4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h039",
+      "first_name": "Joby",
+      "last_name": "George",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:15:35.306Z",
+      "role": "household",
+      "phone": "9526798214",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_users.hksuser",
+    "pk": 62,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$l5R3V8I5fsByKju5rvmrYT$dt1lFKY0XKq1/PvtuOshOmyiP6h0aZbIcInflgARlss=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "h040",
+      "first_name": "Rajesh",
+      "last_name": "Attanghatil",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-03-18T18:18:07.155Z",
+      "role": "household",
+      "phone": "9961162163",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "hks_wards.ward",
+    "pk": 6,
+    "fields": {
+      "name": "Ward 13 Rathnagiri",
+      "total_houses": 15,
+      "description": "Locality area-Chemperi",
+      "created_at": "2026-03-11T08:05:51.128Z"
+    }
+  },
+  {
+    "model": "hks_workers.worker",
+    "pk": 5,
+    "fields": {
+      "user": 20,
+      "worker_id": "W001",
+      "phone": "9496240198",
+      "ward": 6,
+      "is_active": true,
+      "created_at": "2026-03-17T11:12:44.776Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 17,
+    "fields": {
+      "user": 21,
+      "name": "Thankappan",
+      "phone": "9562985392",
+      "ward": 6,
+      "address": "thattumpurath (house)",
+      "qr_code": "HKS-5BD681463F",
+      "qr_image": "qr_codes/qr_HKS-5BD681463F.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:09:01.603Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 18,
+    "fields": {
+      "user": 22,
+      "name": "gangadharan",
+      "phone": "9895847318",
+      "ward": 6,
+      "address": "chalakudyill (house), midilakayam,kayalumpara postoffice,670632",
+      "qr_code": "HKS-EAFF519C7B",
+      "qr_image": "qr_codes/qr_HKS-EAFF519C7B.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:12:06.465Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 19,
+    "fields": {
+      "user": 23,
+      "name": "Aneesh K A",
+      "phone": "9947632291",
+      "ward": 6,
+      "address": "Kakkad house, Mannamkund , Kayalumpara post, 670632",
+      "qr_code": "HKS-940FACFD85",
+      "qr_image": "qr_codes/qr_HKS-940FACFD85.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:14:16.251Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 20,
+    "fields": {
+      "user": 24,
+      "name": "Thankan",
+      "phone": "9544327262",
+      "ward": 6,
+      "address": "Aadulan, 670632",
+      "qr_code": "HKS-482A316699",
+      "qr_image": "qr_codes/qr_HKS-482A316699.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:15:31.826Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 21,
+    "fields": {
+      "user": 25,
+      "name": "Daison",
+      "phone": "9447481470",
+      "ward": 6,
+      "address": "Vettikal house , 670632",
+      "qr_code": "HKS-E5C44A0E7F",
+      "qr_image": "qr_codes/qr_HKS-E5C44A0E7F.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:16:50.134Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 22,
+    "fields": {
+      "user": 26,
+      "name": "Thomas",
+      "phone": "9747637950",
+      "ward": 6,
+      "address": "Vettikal house,670632",
+      "qr_code": "HKS-5445E0A6CF",
+      "qr_image": "qr_codes/qr_HKS-5445E0A6CF.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:18:36.523Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 23,
+    "fields": {
+      "user": 27,
+      "name": "Kannan",
+      "phone": "9447743238",
+      "ward": 6,
+      "address": "moothedan house,670632",
+      "qr_code": "HKS-B56CAB16A0",
+      "qr_image": "qr_codes/qr_HKS-B56CAB16A0.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:20:07.241Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 24,
+    "fields": {
+      "user": null,
+      "name": "Jayan",
+      "phone": "9745972214",
+      "ward": 6,
+      "address": "Perinjalli house,670632",
+      "qr_code": "HKS-694DFF3810",
+      "qr_image": "qr_codes/qr_HKS-694DFF3810.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:21:12.228Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 25,
+    "fields": {
+      "user": null,
+      "name": "Karthiyayani",
+      "phone": "8281411578",
+      "ward": 6,
+      "address": "Edakulath house,670632",
+      "qr_code": "HKS-CA5D290369",
+      "qr_image": "qr_codes/qr_HKS-CA5D290369.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:22:29.783Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 26,
+    "fields": {
+      "user": null,
+      "name": "Krishnan",
+      "phone": "9061790379",
+      "ward": 6,
+      "address": "Kakkapran house,Mannamkund,kayalumpara post,670632",
+      "qr_code": "HKS-0AED7A23ED",
+      "qr_image": "qr_codes/qr_HKS-0AED7A23ED.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-11T08:24:08.325Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 27,
+    "fields": {
+      "user": null,
+      "name": "Lakshmanan",
+      "phone": "8590073496",
+      "ward": 6,
+      "address": "Edakalath,kaayalumpara p.o,670632",
+      "qr_code": "HKS-08D6BF4474",
+      "qr_image": "qr_codes/qr_HKS-08D6BF4474.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:29:07.460Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 28,
+    "fields": {
+      "user": null,
+      "name": "Mani",
+      "phone": "9947254296",
+      "ward": 6,
+      "address": "Kaajileri,kaayalumpara p.o,670632",
+      "qr_code": "HKS-D4093103B5",
+      "qr_image": "qr_codes/qr_HKS-D4093103B5.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:30:26.788Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 29,
+    "fields": {
+      "user": null,
+      "name": "Gopi",
+      "phone": "8281882469",
+      "ward": 6,
+      "address": "Perijelli,kaayalumpara p.o,670632",
+      "qr_code": "HKS-C9AB46DB2A",
+      "qr_image": "qr_codes/qr_HKS-C9AB46DB2A.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:31:28.774Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 30,
+    "fields": {
+      "user": null,
+      "name": "Madhavan",
+      "phone": "9747933074",
+      "ward": 6,
+      "address": "Padiyil,Manamkund,kaayalumpara p.o,670632",
+      "qr_code": "HKS-D8BF82591E",
+      "qr_image": "qr_codes/qr_HKS-D8BF82591E.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:32:45.349Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 31,
+    "fields": {
+      "user": null,
+      "name": "Jayanthi",
+      "phone": "8281411578",
+      "ward": 6,
+      "address": "Edakulath,kaayalumpara p.o,670632",
+      "qr_code": "HKS-CFEA14116C",
+      "qr_image": "qr_codes/qr_HKS-CFEA14116C.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:34:48.980Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 32,
+    "fields": {
+      "user": null,
+      "name": "Thankapan",
+      "phone": "9048312197",
+      "ward": 6,
+      "address": "Karaka,kaayalumpara p.o,670632",
+      "qr_code": "HKS-241301AE19",
+      "qr_image": "qr_codes/qr_HKS-241301AE19.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:36:00.472Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 33,
+    "fields": {
+      "user": null,
+      "name": "Rosamma",
+      "phone": "9447301908",
+      "ward": 6,
+      "address": "Kaavanadiyil,kaayalumpara p.o,670632",
+      "qr_code": "HKS-910518E374",
+      "qr_image": "qr_codes/qr_HKS-910518E374.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:36:51.585Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 34,
+    "fields": {
+      "user": null,
+      "name": "Thomas",
+      "phone": "9747637950",
+      "ward": 6,
+      "address": "Vettikal,kaayalumpara p.o,670632",
+      "qr_code": "HKS-CE88D260AB",
+      "qr_image": "qr_codes/qr_HKS-CE88D260AB.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:37:35.696Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 35,
+    "fields": {
+      "user": null,
+      "name": "Rijo Thomas",
+      "phone": "6282521735",
+      "ward": 6,
+      "address": "Vettikal,kaayalumpara p.o,670632",
+      "qr_code": "HKS-C25924DE73",
+      "qr_image": "qr_codes/qr_HKS-C25924DE73.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:38:44.786Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 36,
+    "fields": {
+      "user": null,
+      "name": "Agasthy",
+      "phone": "9961525650",
+      "ward": 6,
+      "address": "Vettikal,kaayalumpara p.o,670632",
+      "qr_code": "HKS-F8AB46CB39",
+      "qr_image": "qr_codes/qr_HKS-F8AB46CB39.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:40:13.854Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 37,
+    "fields": {
+      "user": null,
+      "name": "Sunny",
+      "phone": "9495907547",
+      "ward": 6,
+      "address": "Arakal,kaayalumpara p.o,670632",
+      "qr_code": "HKS-FB204078F2",
+      "qr_image": "qr_codes/qr_HKS-FB204078F2.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:41:07.719Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 38,
+    "fields": {
+      "user": null,
+      "name": "Joseph",
+      "phone": "9745834142",
+      "ward": 6,
+      "address": "kadambamattathil",
+      "qr_code": "HKS-3CC64FA71A",
+      "qr_image": "qr_codes/qr_HKS-3CC64FA71A.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:42:00.392Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 39,
+    "fields": {
+      "user": null,
+      "name": "Joseph",
+      "phone": "9446513468",
+      "ward": 6,
+      "address": "Paraparakath,kaayalumpara p.o,670632",
+      "qr_code": "HKS-D3A8A20A19",
+      "qr_image": "qr_codes/qr_HKS-D3A8A20A19.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:42:46.586Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 40,
+    "fields": {
+      "user": null,
+      "name": "Anto John",
+      "phone": "8547654994",
+      "ward": 6,
+      "address": "Palakkal,kaayalumpara p.o,670632",
+      "qr_code": "HKS-EB80355D03",
+      "qr_image": "qr_codes/qr_HKS-EB80355D03.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:43:41.695Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 41,
+    "fields": {
+      "user": null,
+      "name": "Biju Antony",
+      "phone": "7561884455",
+      "ward": 6,
+      "address": "ellamplakal",
+      "qr_code": "HKS-E45663C502",
+      "qr_image": "qr_codes/qr_HKS-E45663C502.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-16T16:44:53.033Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 58,
+    "fields": {
+      "user": 48,
+      "name": "Anil Thomas",
+      "phone": "9495866629",
+      "ward": 6,
+      "address": "Pazhuparambil,Kayalumpara p.o,670632",
+      "qr_code": "HKS-7CA510B362",
+      "qr_image": "qr_codes/qr_HKS-7CA510B362.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:45:04.325Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 59,
+    "fields": {
+      "user": 49,
+      "name": "Augasthy",
+      "phone": "9447481503",
+      "ward": 6,
+      "address": "Injanakunnel,kayalumpara p.o",
+      "qr_code": "HKS-18C489EEE9",
+      "qr_image": "qr_codes/qr_HKS-18C489EEE9.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:48:26.599Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 60,
+    "fields": {
+      "user": 50,
+      "name": "Bindu Jacob",
+      "phone": "9847901855",
+      "ward": 6,
+      "address": "Kallolikal,kayalumpara p.o,670632",
+      "qr_code": "HKS-771F6F0BC0",
+      "qr_image": "qr_codes/qr_HKS-771F6F0BC0.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:51:41.529Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 61,
+    "fields": {
+      "user": 51,
+      "name": "Augasthy",
+      "phone": "9847205076",
+      "ward": 6,
+      "address": "vennayipilli,kaayalumpara p.o,670632",
+      "qr_code": "HKS-6E56223E21",
+      "qr_image": "qr_codes/qr_HKS-6E56223E21.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:54:03.052Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 62,
+    "fields": {
+      "user": 52,
+      "name": "Jose Antony",
+      "phone": "9495679422",
+      "ward": 6,
+      "address": "Mannath,kayalumpara p.o,670632",
+      "qr_code": "HKS-8A6A922066",
+      "qr_image": "qr_codes/qr_HKS-8A6A922066.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:56:06.923Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 63,
+    "fields": {
+      "user": 53,
+      "name": "Jomy Jose",
+      "phone": "8547693545",
+      "ward": 6,
+      "address": "Velikalath,kayalumpara p.o,670632",
+      "qr_code": "HKS-20319DC614",
+      "qr_image": "qr_codes/qr_HKS-20319DC614.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T17:58:21.430Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 64,
+    "fields": {
+      "user": 54,
+      "name": "John",
+      "phone": "8590169227",
+      "ward": 6,
+      "address": "Kareemplakal,kayalumpara p.o,670632",
+      "qr_code": "HKS-A5289826A3",
+      "qr_image": "qr_codes/qr_HKS-A5289826A3.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:00:21.503Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 65,
+    "fields": {
+      "user": 55,
+      "name": "Joseph",
+      "phone": "8547693231",
+      "ward": 6,
+      "address": "Pandiyammakal,kayalumpara p.o,670632",
+      "qr_code": "HKS-591D4B4740",
+      "qr_image": "qr_codes/qr_HKS-591D4B4740.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:01:59.634Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 66,
+    "fields": {
+      "user": 56,
+      "name": "Francis",
+      "phone": "9446989552",
+      "ward": 6,
+      "address": "Pandiyammakal,kayalumpara p.o,670632",
+      "qr_code": "HKS-4ED2EA7ECE",
+      "qr_image": "qr_codes/qr_HKS-4ED2EA7ECE.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:03:37.129Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 67,
+    "fields": {
+      "user": 57,
+      "name": "Ammini",
+      "phone": "9496706004",
+      "ward": 6,
+      "address": "Parakal,kayalumpara p.o,670632",
+      "qr_code": "HKS-11D3E28DD1",
+      "qr_image": "qr_codes/qr_HKS-11D3E28DD1.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:05:12.504Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 68,
+    "fields": {
+      "user": 58,
+      "name": "Bindu Chakalakal",
+      "phone": "9745659522",
+      "ward": 6,
+      "address": "Chakalakal,kayalumpara p.o,670632",
+      "qr_code": "HKS-DD94E07DD0",
+      "qr_image": "qr_codes/qr_HKS-DD94E07DD0.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:09:40.554Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 69,
+    "fields": {
+      "user": 59,
+      "name": "Jinu George",
+      "phone": "9656182730",
+      "ward": 6,
+      "address": "Njarukulathil,kayalumpara p.o,670632",
+      "qr_code": "HKS-6828A7A1F7",
+      "qr_image": "qr_codes/qr_HKS-6828A7A1F7.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:11:34.587Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 70,
+    "fields": {
+      "user": 60,
+      "name": "Francis",
+      "phone": "9495150609",
+      "ward": 6,
+      "address": "Poovelil,kayalumpara p.o,670632",
+      "qr_code": "HKS-87AF42678D",
+      "qr_image": "qr_codes/qr_HKS-87AF42678D.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:13:30.497Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 71,
+    "fields": {
+      "user": 61,
+      "name": "Joby George",
+      "phone": "9526798214",
+      "ward": 6,
+      "address": "Chettiyamkunnel,kayalumpara p.o,670632",
+      "qr_code": "HKS-B28F723B3D",
+      "qr_image": "qr_codes/qr_HKS-B28F723B3D.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:15:36.085Z"
+    }
+  },
+  {
+    "model": "hks_households.household",
+    "pk": 72,
+    "fields": {
+      "user": 62,
+      "name": "Rajesh",
+      "phone": "9961162163",
+      "ward": 6,
+      "address": "Attanghatil,kayalumpara p.o,670632",
+      "qr_code": "HKS-96083E247D",
+      "qr_image": "qr_codes/qr_HKS-96083E247D.png",
+      "monthly_fee": "50.00",
+      "upi_id": null,
+      "preferred_payment": "cash",
+      "is_active": true,
+      "created_at": "2026-03-18T18:18:07.936Z"
+    }
+  },
+  {
+    "model": "hks_collections.collection",
+    "pk": 35,
+    "fields": {
+      "household": 17,
+      "worker": 5,
+      "date": "2026-04-01",
+      "waste_type": "organic",
+      "weight": "1.00",
+      "rate": "0.00",
+      "amount": "50.00",
+      "cleanliness": 4,
+      "payment_method": "cash",
+      "payment_status": "paid",
+      "notes": "",
+      "worker_rating": null,
+      "worker_feedback": null,
+      "feedback_punctuality": null,
+      "feedback_cleanliness": null,
+      "feedback_attitude": null,
+      "created_at": "2026-04-01T06:03:05.557Z"
+    }
+  },
+  {
+    "model": "hks_collections.collection",
+    "pk": 36,
+    "fields": {
+      "household": 18,
+      "worker": 5,
+      "date": "2026-04-01",
+      "waste_type": "organic",
+      "weight": "1.00",
+      "rate": "0.00",
+      "amount": "50.00",
+      "cleanliness": 3,
+      "payment_method": "cash",
+      "payment_status": "paid",
+      "notes": "",
+      "worker_rating": null,
+      "worker_feedback": null,
+      "feedback_punctuality": null,
+      "feedback_cleanliness": null,
+      "feedback_attitude": null,
+      "created_at": "2026-04-01T06:03:26.623Z"
+    }
+  },
+  {
+    "model": "hks_collections.collection",
+    "pk": 37,
+    "fields": {
+      "household": 19,
+      "worker": 5,
+      "date": "2026-04-01",
+      "waste_type": "organic",
+      "weight": "2.00",
+      "rate": "0.00",
+      "amount": "50.00",
+      "cleanliness": 5,
+      "payment_method": "upi",
+      "payment_status": "paid",
+      "notes": "",
+      "worker_rating": null,
+      "worker_feedback": null,
+      "feedback_punctuality": null,
+      "feedback_cleanliness": null,
+      "feedback_attitude": null,
+      "created_at": "2026-04-01T06:03:52.295Z"
+    }
+  },
+  {
+    "model": "hks_collections.collection",
+    "pk": 38,
+    "fields": {
+      "household": 22,
+      "worker": 5,
+      "date": "2026-04-01",
+      "waste_type": "organic",
+      "weight": "2.00",
+      "rate": "0.00",
+      "amount": "50.00",
+      "cleanliness": 3,
+      "payment_method": "pending",
+      "payment_status": "pending",
+      "notes": "",
+      "worker_rating": null,
+      "worker_feedback": null,
+      "feedback_punctuality": null,
+      "feedback_cleanliness": null,
+      "feedback_attitude": null,
+      "created_at": "2026-04-01T06:07:45.262Z"
+    }
+  },
+  {
+    "model": "hks_collections.collection",
+    "pk": 39,
+    "fields": {
+      "household": 21,
+      "worker": 5,
+      "date": "2026-04-01",
+      "waste_type": "plastic",
+      "weight": "3.00",
+      "rate": "0.00",
+      "amount": "50.00",
+      "cleanliness": 5,
+      "payment_method": "cash",
+      "payment_status": "paid",
+      "notes": "",
+      "worker_rating": null,
+      "worker_feedback": null,
+      "feedback_punctuality": null,
+      "feedback_cleanliness": null,
+      "feedback_attitude": null,
+      "created_at": "2026-04-01T06:28:18.466Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 1,
+    "fields": {
+      "household": 17,
+      "date": "2026-03-20",
+      "reason": "test skip",
+      "payment_action": "defer",
+      "status": "acknowledged",
+      "created_at": "2026-03-17T11:44:30.890Z",
+      "acknowledged_at": "2026-03-17T12:03:02.289Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 2,
+    "fields": {
+      "household": 17,
+      "date": "2026-03-21",
+      "reason": "test skip 2",
+      "payment_action": "defer",
+      "status": "acknowledged",
+      "created_at": "2026-03-17T11:48:14.197Z",
+      "acknowledged_at": "2026-03-17T12:03:00.069Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 3,
+    "fields": {
+      "household": 20,
+      "date": "2026-03-18",
+      "reason": "rtfr",
+      "payment_action": "defer",
+      "status": "acknowledged",
+      "created_at": "2026-03-17T11:49:28.911Z",
+      "acknowledged_at": "2026-03-17T12:03:03.669Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 4,
+    "fields": {
+      "household": 17,
+      "date": "2026-03-18",
+      "reason": "",
+      "payment_action": "defer",
+      "status": "acknowledged",
+      "created_at": "2026-03-18T10:40:36.450Z",
+      "acknowledged_at": "2026-03-18T13:03:24.768Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 5,
+    "fields": {
+      "household": 20,
+      "date": "2026-03-18",
+      "reason": "i will be home",
+      "payment_action": "defer",
+      "status": "acknowledged",
+      "created_at": "2026-03-18T13:03:05.181Z",
+      "acknowledged_at": "2026-03-18T13:03:28.057Z"
+    }
+  },
+  {
+    "model": "hks_collections.skiprequest",
+    "pk": 6,
+    "fields": {
+      "household": 20,
+      "date": "2026-04-01",
+      "reason": "",
+      "payment_action": "defer",
+      "status": "pending",
+      "created_at": "2026-04-01T06:05:18.517Z",
+      "acknowledged_at": null
+    }
+  },
+  {
+    "model": "hks_collections.extrapickuprequest",
+    "pk": 1,
+    "fields": {
+      "household": 17,
+      "waste_type": "plastic",
+      "date": "2026-03-17",
+      "notes": "test pickup",
+      "status": "approved",
+      "reviewed_by": 5,
+      "reviewed_at": "2026-03-17T12:02:49.705Z",
+      "created_at": "2026-03-17T11:48:14.258Z"
+    }
+  },
+  {
+    "model": "hks_collections.extrapickuprequest",
+    "pk": 2,
+    "fields": {
+      "household": 20,
+      "waste_type": "plastic",
+      "date": "2026-03-17",
+      "notes": "",
+      "status": "approved",
+      "reviewed_by": 5,
+      "reviewed_at": "2026-03-17T12:02:52.359Z",
+      "created_at": "2026-03-17T11:49:44.406Z"
+    }
+  },
+  {
+    "model": "hks_collections.extrapickuprequest",
+    "pk": 3,
+    "fields": {
+      "household": 20,
+      "waste_type": "paper",
+      "date": "2026-03-17",
+      "notes": "",
+      "status": "approved",
+      "reviewed_by": 5,
+      "reviewed_at": "2026-03-17T12:02:54.058Z",
+      "created_at": "2026-03-17T12:02:24.169Z"
+    }
+  },
+  {
+    "model": "hks_collections.extrapickuprequest",
+    "pk": 4,
+    "fields": {
+      "household": 20,
+      "waste_type": "mixed",
+      "date": "2026-03-18",
+      "notes": "Rejection reason: will be takn next montnhh",
+      "status": "rejected",
+      "reviewed_by": 5,
+      "reviewed_at": "2026-03-18T13:04:07.671Z",
+      "created_at": "2026-03-18T13:02:38.020Z"
+    }
+  },
+  {
+    "model": "hks_collections.extrapickuprequest",
+    "pk": 5,
+    "fields": {
+      "household": 21,
+      "waste_type": "plastic",
+      "date": "2026-04-01",
+      "notes": "",
+      "status": "approved",
+      "reviewed_by": 5,
+      "reviewed_at": "2026-04-01T06:27:42.310Z",
+      "created_at": "2026-04-01T06:06:40.115Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 46,
+    "fields": {
+      "recipient": 20,
+      "title": "welcome to harithakarma sena",
+      "message": "We are introducing this app for faster watse collection....",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:51:19.990Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 47,
+    "fields": {
+      "recipient": 21,
+      "title": "welcome to harithakarma sena",
+      "message": "We are introducing this app for faster watse collection....",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:51:19.990Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 48,
+    "fields": {
+      "recipient": 22,
+      "title": "welcome to harithakarma sena",
+      "message": "We are introducing this app for faster watse collection....",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:51:19.990Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 49,
+    "fields": {
+      "recipient": 23,
+      "title": "welcome to harithakarma sena",
+      "message": "We are introducing this app for faster watse collection....",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:51:19.990Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 50,
+    "fields": {
+      "recipient": 21,
+      "title": "wastecollectin",
+      "message": "today waste collection wll be schheduled ",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:53:42.836Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 51,
+    "fields": {
+      "recipient": 22,
+      "title": "wastecollectin",
+      "message": "today waste collection wll be schheduled ",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:53:42.836Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 52,
+    "fields": {
+      "recipient": 23,
+      "title": "wastecollectin",
+      "message": "today waste collection wll be schheduled ",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-11T09:53:42.836Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 53,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T06:00:55.004Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 54,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T06:00:55.032Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 55,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T06:00:55.050Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 56,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T07:50:57.826Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 57,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T07:50:57.841Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 58,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 12/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 12/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 12/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-12T07:50:57.850Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 59,
+    "fields": {
+      "recipient": 20,
+      "title": "colletion will be taken on today",
+      "message": "plasticwil be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-16T14:59:00.290Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 60,
+    "fields": {
+      "recipient": 21,
+      "title": "colletion will be taken on today",
+      "message": "plasticwil be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-16T14:59:00.291Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 61,
+    "fields": {
+      "recipient": 22,
+      "title": "colletion will be taken on today",
+      "message": "plasticwil be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-16T14:59:00.291Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 62,
+    "fields": {
+      "recipient": 23,
+      "title": "colletion will be taken on today",
+      "message": "plasticwil be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-16T14:59:00.291Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 63,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 16/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 16/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 16/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T15:28:48.132Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 64,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 16/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 16/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 16/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T15:28:48.164Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 65,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 16/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 16/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 16/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T15:28:48.199Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 66,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 17/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 17/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 17/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T16:15:56.349Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 67,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 17/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 17/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 17/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T16:15:56.361Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 68,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 17/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 17/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 17/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-16T16:15:56.375Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 74,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.902Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 75,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.911Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 76,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.923Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 77,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.929Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 78,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.943Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 79,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.949Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 80,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:50:18.961Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 81,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.628Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 82,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.677Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 83,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.677Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 84,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.687Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 85,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.693Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 86,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.697Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 87,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:51:45.702Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 88,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.144Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 89,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.186Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 90,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.192Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 91,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.197Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 92,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.197Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 93,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.207Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 94,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:53:09.210Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 95,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.510Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 96,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.552Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 97,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.557Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 98,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.561Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 99,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.566Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 100,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.569Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 101,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:54:47.574Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 102,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.147Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 103,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.154Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 104,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.161Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 105,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.161Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 106,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.172Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 107,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.177Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 108,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:56:10.177Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 109,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.901Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 110,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.949Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 111,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.955Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 112,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.959Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 113,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.963Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 114,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.967Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 115,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.968Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 116,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 20/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Saniya Ashaworker will be collecting waste in Ward 13 Rathnagiri on 20/03/2026. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 20/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-17T11:58:11.980Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 117,
+    "fields": {
+      "recipient": 20,
+      "title": "Extra Pickup Request",
+      "message": "Thankan is requesting extra pickup of Paper today. Notes: None",
+      "message_ml": "Thankan α┤çα┤¿α╡ìα┤¿α╡ì Paper α┤òα╡éα┤ƒα╡üα┤ñα╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤òα╡ìα┤òα╡üα┤¿α╡ìα┤¿α╡ü. α┤òα╡üα┤▒α┤┐α┤¬α╡ìα┤¬α╡ì: α┤çα┤▓α╡ìα┤▓",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-17T12:02:24.218Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 118,
+    "fields": {
+      "recipient": 21,
+      "title": "Extra Pickup Approved Γ£ô",
+      "message": "Your request for extra Plastic pickup has been approved! The worker will collect it today.",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å Plastic α┤╢α╡çα┤ûα┤░α┤ú α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤¿ α┤àα┤¿α╡üα┤╡α┤ªα┤┐α┤Üα╡ìα┤Üα╡ü! α┤ñα╡èα┤┤α┤┐α┤▓α┤╛α┤│α┤┐ α┤çα┤¿α╡ìα┤¿α╡ì α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é.",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-17T12:02:49.752Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 119,
+    "fields": {
+      "recipient": 24,
+      "title": "Extra Pickup Approved Γ£ô",
+      "message": "Your request for extra Plastic pickup has been approved! The worker will collect it today.",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å Plastic α┤╢α╡çα┤ûα┤░α┤ú α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤¿ α┤àα┤¿α╡üα┤╡α┤ªα┤┐α┤Üα╡ìα┤Üα╡ü! α┤ñα╡èα┤┤α┤┐α┤▓α┤╛α┤│α┤┐ α┤çα┤¿α╡ìα┤¿α╡ì α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é.",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-17T12:02:52.411Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 120,
+    "fields": {
+      "recipient": 24,
+      "title": "Extra Pickup Approved Γ£ô",
+      "message": "Your request for extra Paper pickup has been approved! The worker will collect it today.",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å Paper α┤╢α╡çα┤ûα┤░α┤ú α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤¿ α┤àα┤¿α╡üα┤╡α┤ªα┤┐α┤Üα╡ìα┤Üα╡ü! α┤ñα╡èα┤┤α┤┐α┤▓α┤╛α┤│α┤┐ α┤çα┤¿α╡ìα┤¿α╡ì α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é.",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-17T12:02:54.108Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 121,
+    "fields": {
+      "recipient": 21,
+      "title": "Skip Request Acknowledged",
+      "message": "Your collection skip for 2026-03-21 has been acknowledged.",
+      "message_ml": "2026-03-21-α┤▓α╡å α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα╡╜ α┤àα┤éα┤ùα╡Çα┤òα┤░α┤┐α┤Üα╡ìα┤Üα╡ü.",
+      "notification_type": "general",
+      "is_read": true,
+      "created_at": "2026-03-17T12:03:00.088Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 122,
+    "fields": {
+      "recipient": 21,
+      "title": "Skip Request Acknowledged",
+      "message": "Your collection skip for 2026-03-20 has been acknowledged.",
+      "message_ml": "2026-03-20-α┤▓α╡å α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα╡╜ α┤àα┤éα┤ùα╡Çα┤òα┤░α┤┐α┤Üα╡ìα┤Üα╡ü.",
+      "notification_type": "general",
+      "is_read": true,
+      "created_at": "2026-03-17T12:03:02.341Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 123,
+    "fields": {
+      "recipient": 24,
+      "title": "Skip Request Acknowledged",
+      "message": "Your collection skip for 2026-03-18 has been acknowledged.",
+      "message_ml": "2026-03-18-α┤▓α╡å α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα╡╜ α┤àα┤éα┤ùα╡Çα┤òα┤░α┤┐α┤Üα╡ìα┤Üα╡ü.",
+      "notification_type": "general",
+      "is_read": true,
+      "created_at": "2026-03-17T12:03:03.681Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 124,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:58.945Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 125,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:58.968Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 126,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:58.978Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 127,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:58.987Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 128,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:58.999Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 129,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:59.009Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 130,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:59.017Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 131,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T09:45:59.055Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 132,
+    "fields": {
+      "recipient": 20,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 133,
+    "fields": {
+      "recipient": 21,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 134,
+    "fields": {
+      "recipient": 22,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 135,
+    "fields": {
+      "recipient": 23,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 136,
+    "fields": {
+      "recipient": 24,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 137,
+    "fields": {
+      "recipient": 25,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 138,
+    "fields": {
+      "recipient": 26,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 139,
+    "fields": {
+      "recipient": 27,
+      "title": "t1",
+      "message": "hy",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T10:31:53.445Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 142,
+    "fields": {
+      "recipient": 20,
+      "title": "Collection Skip Request",
+      "message": "Thankappan has requested to skip collection on 2026-03-18. Reason: No reason given.",
+      "message_ml": "Thankappan 2026-03-18-α╡╜ α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤Üα╡ìα┤Üα╡ü. α┤òα┤╛α┤░α┤úα┤é: α┤òα┤╛α┤░α┤úα┤é α┤¿α╡╜α┤òα┤┐α┤»α┤┐α┤ƒα╡ìα┤ƒα┤┐α┤▓α╡ìα┤▓.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:36.463Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 143,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.911Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 144,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.918Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 145,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.926Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 146,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.932Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 147,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.938Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 148,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.945Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 149,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.952Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 150,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T10:40:49.971Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 151,
+    "fields": {
+      "recipient": 20,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.133Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 152,
+    "fields": {
+      "recipient": 21,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.134Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 153,
+    "fields": {
+      "recipient": 22,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.134Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 154,
+    "fields": {
+      "recipient": 23,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 155,
+    "fields": {
+      "recipient": 24,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 156,
+    "fields": {
+      "recipient": 25,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 157,
+    "fields": {
+      "recipient": 26,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 158,
+    "fields": {
+      "recipient": 27,
+      "title": "test2",
+      "message": "broadcast checck...",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-03-18T12:57:48.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 161,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.136Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 162,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.146Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 163,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.153Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 164,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.160Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 165,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.166Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 166,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.176Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 167,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.180Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 168,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 18/03/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 18/03/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 18/03/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:01.201Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 169,
+    "fields": {
+      "recipient": 20,
+      "title": "Extra Pickup Request",
+      "message": "Thankan is requesting extra pickup of Mixed today. Notes: None",
+      "message_ml": "Thankan α┤çα┤¿α╡ìα┤¿α╡ì Mixed α┤òα╡éα┤ƒα╡üα┤ñα╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤òα╡ìα┤òα╡üα┤¿α╡ìα┤¿α╡ü. α┤òα╡üα┤▒α┤┐α┤¬α╡ìα┤¬α╡ì: α┤çα┤▓α╡ìα┤▓",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-18T13:02:38.042Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 170,
+    "fields": {
+      "recipient": 20,
+      "title": "Collection Skip Request",
+      "message": "Thankan has requested to skip collection on 2026-03-18. Reason: i will be home.",
+      "message_ml": "Thankan 2026-03-18-α╡╜ α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤Üα╡ìα┤Üα╡ü. α┤òα┤╛α┤░α┤úα┤é: i will be home.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-03-18T13:03:05.202Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 171,
+    "fields": {
+      "recipient": 21,
+      "title": "Skip Request Acknowledged",
+      "message": "Your collection skip for 2026-03-18 has been acknowledged.",
+      "message_ml": "2026-03-18-α┤▓α╡å α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα╡╜ α┤àα┤éα┤ùα╡Çα┤òα┤░α┤┐α┤Üα╡ìα┤Üα╡ü.",
+      "notification_type": "general",
+      "is_read": true,
+      "created_at": "2026-03-18T13:03:24.781Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 172,
+    "fields": {
+      "recipient": 24,
+      "title": "Skip Request Acknowledged",
+      "message": "Your collection skip for 2026-03-18 has been acknowledged.",
+      "message_ml": "2026-03-18-α┤▓α╡å α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα╡╜ α┤àα┤éα┤ùα╡Çα┤òα┤░α┤┐α┤Üα╡ìα┤Üα╡ü.",
+      "notification_type": "general",
+      "is_read": true,
+      "created_at": "2026-03-18T13:03:28.069Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 173,
+    "fields": {
+      "recipient": 24,
+      "title": "Extra Pickup Not Possible",
+      "message": "Your request for extra Mixed pickup could not be accommodated today. will be takn next montnhh",
+      "message_ml": "α┤çα┤¿α╡ìα┤¿α╡ì Mixed α┤╢α╡çα┤ûα┤░α┤ú α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤¿ α┤¿α┤┐α┤░α┤╕α┤┐α┤Üα╡ìα┤Üα╡ü. will be takn next montnhh",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-03-18T13:04:07.683Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 174,
+    "fields": {
+      "recipient": 25,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-03-18. Type: Organic, Weight: 2.00kg, Amount: Rs50.00, Payment: Cash",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-03-18-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Organic, α┤¡α┤╛α┤░α┤é: 2.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": true,
+      "created_at": "2026-03-18T17:00:42.351Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 175,
+    "fields": {
+      "recipient": 21,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.245Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 176,
+    "fields": {
+      "recipient": 22,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.260Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 177,
+    "fields": {
+      "recipient": 23,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.272Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 178,
+    "fields": {
+      "recipient": 24,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.282Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 179,
+    "fields": {
+      "recipient": 25,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.293Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 180,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.304Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 181,
+    "fields": {
+      "recipient": 27,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.315Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 182,
+    "fields": {
+      "recipient": 26,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.359Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 183,
+    "fields": {
+      "recipient": 48,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.390Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 184,
+    "fields": {
+      "recipient": 49,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.416Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 185,
+    "fields": {
+      "recipient": 50,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.428Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 186,
+    "fields": {
+      "recipient": 51,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.437Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 187,
+    "fields": {
+      "recipient": 52,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.448Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 188,
+    "fields": {
+      "recipient": 53,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.458Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 189,
+    "fields": {
+      "recipient": 54,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.469Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 190,
+    "fields": {
+      "recipient": 55,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.479Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 191,
+    "fields": {
+      "recipient": 56,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.487Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 192,
+    "fields": {
+      "recipient": 57,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.498Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 193,
+    "fields": {
+      "recipient": 58,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.506Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 194,
+    "fields": {
+      "recipient": 59,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.516Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 195,
+    "fields": {
+      "recipient": 60,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.524Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 196,
+    "fields": {
+      "recipient": 61,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.542Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 197,
+    "fields": {
+      "recipient": 62,
+      "title": "Collection on 01/04/2026 ΓÇö Ward 13 Rathnagiri",
+      "message": "Waste collection is scheduled for 01/04/2026 in Ward 13 Rathnagiri. Please keep your waste ready.",
+      "message_ml": "Saniya Ashaworker 01/04/2026-α╡╜ Ward 13 Rathnagiri-α╡╜ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é. α┤ªα┤»α┤╡α┤╛α┤»α┤┐ α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é α┤ñα┤»α╡ìα┤»α┤╛α┤▒α┤╛α┤òα╡ìα┤òα╡é.",
+      "notification_type": "reminder",
+      "is_read": false,
+      "created_at": "2026-04-01T06:02:17.551Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 198,
+    "fields": {
+      "recipient": 21,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-04-01. Type: Organic, Weight: 1.00kg, Amount: Rs50.00, Payment: Cash",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Organic, α┤¡α┤╛α┤░α┤é: 1.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": false,
+      "created_at": "2026-04-01T06:03:05.575Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 199,
+    "fields": {
+      "recipient": 22,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-04-01. Type: Organic, Weight: 1.00kg, Amount: Rs50.00, Payment: Cash",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Organic, α┤¡α┤╛α┤░α┤é: 1.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": false,
+      "created_at": "2026-04-01T06:03:26.641Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 200,
+    "fields": {
+      "recipient": 23,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-04-01. Type: Organic, Weight: 2.00kg, Amount: Rs50.00, Payment: UPI",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Organic, α┤¡α┤╛α┤░α┤é: 2.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": false,
+      "created_at": "2026-04-01T06:03:52.369Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 201,
+    "fields": {
+      "recipient": 20,
+      "title": "Collection Skip Request",
+      "message": "Thankan has requested to skip collection on 2026-04-01. Reason: No reason given.",
+      "message_ml": "Thankan 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤úα┤é α┤Æα┤┤α┤┐α┤╡α┤╛α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤Üα╡ìα┤Üα╡ü. α┤òα┤╛α┤░α┤úα┤é: α┤òα┤╛α┤░α┤úα┤é α┤¿α╡╜α┤òα┤┐α┤»α┤┐α┤ƒα╡ìα┤ƒα┤┐α┤▓α╡ìα┤▓.",
+      "notification_type": "reminder",
+      "is_read": true,
+      "created_at": "2026-04-01T06:05:18.538Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 202,
+    "fields": {
+      "recipient": 20,
+      "title": "Extra Pickup Request",
+      "message": "Daison is requesting extra pickup of Plastic today. Notes: None",
+      "message_ml": "Daison α┤çα┤¿α╡ìα┤¿α╡ì Plastic α┤òα╡éα┤ƒα╡üα┤ñα╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα┤╛α╡╗ α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤┐α┤òα╡ìα┤òα╡üα┤¿α╡ìα┤¿α╡ü. α┤òα╡üα┤▒α┤┐α┤¬α╡ìα┤¬α╡ì: α┤çα┤▓α╡ìα┤▓",
+      "notification_type": "pickup",
+      "is_read": true,
+      "created_at": "2026-04-01T06:06:40.150Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 203,
+    "fields": {
+      "recipient": 26,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-04-01. Type: Organic, Weight: 2.00kg, Amount: Rs50.00, Payment: Pending",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Organic, α┤¡α┤╛α┤░α┤é: 2.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": false,
+      "created_at": "2026-04-01T06:07:45.336Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 204,
+    "fields": {
+      "recipient": 20,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": true,
+      "created_at": "2026-04-01T06:23:31.873Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 205,
+    "fields": {
+      "recipient": 21,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.875Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 206,
+    "fields": {
+      "recipient": 22,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.875Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 207,
+    "fields": {
+      "recipient": 23,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.875Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 208,
+    "fields": {
+      "recipient": 24,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.875Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 209,
+    "fields": {
+      "recipient": 25,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.875Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 210,
+    "fields": {
+      "recipient": 26,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 211,
+    "fields": {
+      "recipient": 27,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 212,
+    "fields": {
+      "recipient": 48,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 213,
+    "fields": {
+      "recipient": 49,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 214,
+    "fields": {
+      "recipient": 50,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 215,
+    "fields": {
+      "recipient": 51,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 216,
+    "fields": {
+      "recipient": 52,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 217,
+    "fields": {
+      "recipient": 53,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 218,
+    "fields": {
+      "recipient": 54,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 219,
+    "fields": {
+      "recipient": 55,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 220,
+    "fields": {
+      "recipient": 56,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 221,
+    "fields": {
+      "recipient": 57,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 222,
+    "fields": {
+      "recipient": 58,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 223,
+    "fields": {
+      "recipient": 59,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 224,
+    "fields": {
+      "recipient": 60,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 225,
+    "fields": {
+      "recipient": 61,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 226,
+    "fields": {
+      "recipient": 62,
+      "title": "collection on 1st march 2026",
+      "message": "today wastte collection will taken place in ward 13 rathnagiri. organic waste will be collected",
+      "message_ml": "",
+      "notification_type": "broadcast",
+      "is_read": false,
+      "created_at": "2026-04-01T06:23:31.876Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 227,
+    "fields": {
+      "recipient": 25,
+      "title": "Extra Pickup Approved Γ£ô",
+      "message": "Your request for extra Plastic pickup has been approved! The worker will collect it today.",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å Plastic α┤╢α╡çα┤ûα┤░α┤ú α┤àα┤¡α╡ìα┤»α╡╝α┤ñα╡ìα┤Ñα┤¿ α┤àα┤¿α╡üα┤╡α┤ªα┤┐α┤Üα╡ìα┤Üα╡ü! α┤ñα╡èα┤┤α┤┐α┤▓α┤╛α┤│α┤┐ α┤çα┤¿α╡ìα┤¿α╡ì α┤╢α╡çα┤ûα┤░α┤┐α┤òα╡ìα┤òα╡üα┤é.",
+      "notification_type": "pickup",
+      "is_read": false,
+      "created_at": "2026-04-01T06:27:42.331Z"
+    }
+  },
+  {
+    "model": "hks_notifications.notification",
+    "pk": 228,
+    "fields": {
+      "recipient": 25,
+      "title": "Waste Collection Confirmed",
+      "message": "Your waste was collected on 2026-04-01. Type: Plastic, Weight: 3.00kg, Amount: Rs50.00, Payment: Cash",
+      "message_ml": "α┤¿α┤┐α┤Öα╡ìα┤Öα┤│α╡üα┤ƒα╡å α┤«α┤╛α┤▓α┤┐α┤¿α╡ìα┤»α┤é 2026-04-01-α╡╜ α┤╢α╡çα┤ûα┤░α┤┐α┤Üα╡ìα┤Üα╡ü. α┤ñα┤░α┤é: Plastic, α┤¡α┤╛α┤░α┤é: 3.00kg, α┤ñα╡üα┤ò: Rs50.00",
+      "notification_type": "collection",
+      "is_read": false,
+      "created_at": "2026-04-01T06:28:18.479Z"
+    }
+  }
+]
