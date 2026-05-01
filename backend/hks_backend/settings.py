@@ -126,10 +126,12 @@ REST_FRAMEWORK = {
     ],
 }
 
-# JWT
+# JWT – long-lived tokens so users stay logged in like a normal app
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),   # 30 days before refresh needed
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365),  # 1 year before re-login required
+    'ROTATE_REFRESH_TOKENS': True,                  # issue new refresh token on each refresh call
+    'BLACKLIST_AFTER_ROTATION': False,              # no blacklist app needed
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
